@@ -2,7 +2,6 @@
 
 import argparse
 import json
-import math
 from pathlib import Path
 import subprocess
 from PIL import Image, ImageDraw
@@ -13,11 +12,11 @@ BLUE = "#8cbbea"
 RAIL = "#6b818e"
 
 
-def mechanism(d, left, frame, g, teacher, gap):
-    scale = 1.5
+def mechanism(d, left, frame, g, teacher, gap, free=False):
+    scale = 1.35
 
     def pos(x, z):
-        return (left + 246 + scale * x, 520 - scale * z)
+        return (left + 222 + scale * x, 520 - scale * z)
 
     def box(x, z, w, h, color):
         x0, y0 = pos(x, z)
@@ -34,13 +33,14 @@ def mechanism(d, left, frame, g, teacher, gap):
     box(-153, -10, 280, 7, RAIL)
     # Section of the side slot through the lug. The handle and pin lie in a
     # parallel plane and are projected here to make the clearance visible.
-    box(46, -8, 18, 13 + g, RED)
-    box(46, 33 + g, 18, 97 - g, RED)
-    box(dx - 7, -4, 75, 5, BLUE)
-    box(dx + 8, 27 + hz, 12, 38, GOLD)
-    box(dx - 17.5, 54 + hz, 33, 12, GOLD)
-    box(dx + 12, 20 + hz, 26, 5, GOLD)
-    box(dx + 26, 5 + hz, 16, 18, GOLD)
+    if not free:
+        box(46, -8, 18, 13 + g, RED)
+        box(46, 33 + g, 18, 97 - g, RED)
+        box(dx - 7, -4, 75, 5, BLUE)
+        box(dx + 8, 27 + hz, 12, 38, GOLD)
+        box(dx - 17.5, 54 + hz, 33, 12, GOLD)
+        box(dx + 12, 20 + hz, 26, 5, GOLD)
+        box(dx + 26, 5 + hz, 16, 18, GOLD)
     if teacher:
         pivot = frame["pivot_x_mm"]
         d.line((pos(pivot, 45), pos(tx, tz)), fill=GREEN, width=9)

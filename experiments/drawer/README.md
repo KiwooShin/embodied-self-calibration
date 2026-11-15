@@ -52,3 +52,5 @@ The edit step requires Pillow, DejaVu Sans and FFmpeg with an H.264 encoder. The
 ## Keyed passage and different joint types
 
 Run keyed.py with a new output JSON using PyODE. Render the sectional comparison with keyed_film.py, passing the JSON, the MP4 path and optionally --encoder libopenh264. The side-view projection shows the catch and passage in a plane beside the pin. The teacher can use its own fixture parameters to demonstrate the skill. A student receiving an example sees only measured object motion. Lift targets and source-fixture assignments are recorded so the shuffled-segment control can be checked.
+
+For the integrated evaluation, run integrated.py with --mode rule or --mode qwen-observed and a new output JSON. For a larger checkpoint, set both --model and --endpoint to the identity and address of the corresponding server. Independent tests always use the same actor parameters saved at the end of teaching. The supervisor does not receive the fixture identifier.

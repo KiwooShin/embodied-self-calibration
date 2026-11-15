@@ -12,7 +12,7 @@ TEST_POSES = ((0.16, 0.003), (-0.09, 0.008), (0.28, 0.012))
 GOAL_MM = 60
 
 
-def attempt(config, skill, origin=0, gap=0):
+def attempt(station, config, skill, origin=0, gap=0):
     with station(**config, origin=origin, gap=gap) as rig:
         if skill["lift_mm"]:
             rig.move(0, skill["lift_mm"])
@@ -25,18 +25,36 @@ def attempt(config, skill, origin=0, gap=0):
         }, rig.trace
 
 
-def trial(config, mode, endpoint, training_gap=0):
+def standard_demo(station, config):
+    with station(latched=config["latched"], teacher=True) as rig:
+        rig.move(0, 45)
+        result = rig.move(90, 45)
+        if result["drawer_x_mm"] < GOAL_MM:
+            raise RuntimeError("Teacher failed the demonstration")
+        return rig.trace
+
+
+def trial(
+    station,
+    config,
+    mode,
+    endpoint,
+    training_gap=0,
+    demonstrate=standard_demo,
+    clearance_mm=6,
+    model_id="qwen3-8b",
+):
     skill = {"polarity": 1, "lift_mm": 0.0}
-    initial, trace = attempt(config, skill, gap=training_gap)
+    initial, trace = attempt(station, config, skill, gap=training_gap)
     history, traces, choices = [initial], [trace], []
     for _ in range(5):
-        selected = decision(mode, history, skill, endpoint)
+        selected = decision(mode, history, skill, endpoint, model_id=model_id)
         choices.append(selected)
         action = selected["action"]
         if action == "assess":
             break
         if action == "practice":
-            episode, trace = attempt(config, skill, gap=training_gap)
+            episode, trace = attempt(station, config, skill, gap=training_gap)
         elif action == "probe":
             with station(**config, free=True) as rig:
                 result = rig.move(12, 0)
@@ -45,29 +63,23 @@ def trial(config, mode, endpoint, training_gap=0):
                 episode = {"kind": action, "pull_command_mm": 12, "result": result}
                 trace = rig.trace
         elif action == "ask_teacher":
-            with station(latched=config["latched"], teacher=True) as rig:
-                rig.move(0, 45)
-                result = rig.move(90, 45)
-                if result["drawer_x_mm"] < GOAL_MM:
-                    raise RuntimeError("Teacher failed the demonstration")
-                # Transfer only measured handle lift through first translation.
-                segment = []
-                for frame in rig.trace:
-                    segment.append(
-                        {k: frame[k] for k in ("tick", "handle_z_mm", "drawer_x_mm")}
-                    )
-                    if frame["drawer_x_mm"] >= 5:
-                        break
-                lift = max(frame["handle_z_mm"] for frame in segment)
-                skill["lift_mm"] = min(80, lift + 6)  # pin-to-handle clearance
-                episode = {"kind": action, "segment": segment}
-                trace = rig.trace
+            trace = demonstrate(station, config)
+            segment = []
+            for frame in trace:
+                segment.append(
+                    {k: frame[k] for k in ("tick", "handle_z_mm", "drawer_x_mm")}
+                )
+                if frame["drawer_x_mm"] >= 5:
+                    break
+            lift = max(frame["handle_z_mm"] for frame in segment)
+            skill["lift_mm"] = min(80, lift + clearance_mm)
+            episode = {"kind": action, "segment": segment}
         history.append(episode)
         traces.append(trace)
     frozen = MappingProxyType(skill.copy())
     tests = []
     for origin, gap in TEST_POSES:
-        result, trace = attempt(config, frozen, origin, gap)
+        result, trace = attempt(station, config, frozen, origin, gap)
         tests.append(
             {
                 "origin_m": origin,
@@ -79,6 +91,7 @@ def trial(config, mode, endpoint, training_gap=0):
         )
     return {
         "training_gap_m": training_gap,
+        "clearance_mm": clearance_mm,
         "decisions": choices,
         "history": history,
         "traces": traces,
@@ -128,7 +141,7 @@ if __name__ == "__main__":
             if args.shifted:
                 config["gain"] = 0.92
             results[name] = trial(
-                config, args.mode, args.endpoint, 0.006 if args.shifted else 0
+                station, config, args.mode, args.endpoint, 0.006 if args.shifted else 0
             )
             print(
                 name,

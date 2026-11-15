@@ -13,6 +13,8 @@ class KeyedDrawer(Drawer):
         super().__init__(**kwargs)
         # The lug runs in a slot on the side, clear of the handle face and pin.
         self.geoms[3].setOffsetPosition((0.034, 0.035, 0.014))
+        if gate_mm is None:
+            return
         required = gate_mm / 1000
         bottom = 0.005 + required
         top = 0.023 + required + 0.010
@@ -71,7 +73,7 @@ GAPS = (0.003, 0.008, 0.012)
 def expert(gate):
     rig = LeverTeacher(gate)
     # The expert knows its own fixture. The student receives object motion only.
-    height = gate + 9
+    height = gate + 9 if gate is not None else 0
     rig.move(0, height)
     end = rig.move(90, height)
     if end["drawer_x_mm"] < 60:

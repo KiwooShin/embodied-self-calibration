@@ -20,7 +20,7 @@ only when it helps. Prefer a successful practice before assessment. Return
 JSON with action and one short evidence sentence. /no_think"""
 
 
-def decision(mode, history, skill, endpoint):
+def decision(mode, history, skill, endpoint, model_id="qwen3-8b"):
     last = history[-1]
     if mode == "rule":
         if last["kind"] == "practice" and last["result"]["drawer_x_mm"] >= 60:
@@ -58,7 +58,7 @@ def decision(mode, history, skill, endpoint):
             "task_goal_met": measured["drawer_x_mm"] >= 60,
         }
     payload = {
-        "model": "qwen3-8b",
+        "model": model_id,
         "temperature": 0,
         "seed": 13,
         "max_tokens": 160,

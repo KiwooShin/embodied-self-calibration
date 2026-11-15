@@ -4,7 +4,7 @@
 
 [![Two simulated drawer trials, with measured tool travel and a 60 mm success threshold](videos/briefing-preview.jpg)](videos/research-briefing.mp4)
 
-**Current status.** Ten milestone films are published. A numeric threshold learned on the two-link arm matched Qwen on 48 held-out three-link reaching tasks while spending 54 fewer probe pulses. Matching the teacher to the fixture now has a measured causal effect in simulation.
+**Current status.** Eleven milestone films are published. A numeric threshold learned on the two-link arm matched Qwen on 48 held-out three-link reaching tasks while spending 54 fewer probe pulses. The integrated drawer test passed 15/24 starts with Qwen3-8B and 24/24 with the fixed rule. A matched Qwen3-32B comparison is in progress.
 
 | Milestone | Film | Finding | Recorded trials |
 | --- | --- | --- | --- |
@@ -18,11 +18,11 @@
 | 8 · Workspace stress test | [How far does one calibration transfer?](videos/08-workspace.mp4) | Across 208 posture/direction pairs, one frozen map passed 102. Refitting at each posture passed 166. The three-link arm improved from 41/104 to 85/104. | [All paired outcomes](results/workspace-sweep.json) |
 | 9 · Decide when to recalibrate | [Is this motor map still useful?](videos/09-recalibrate.mp4) | Qwen chose to reprobe on every one of 48 trials. It passed 39, using 144 extra pulses and 48 resets. The two-link residual threshold passed 39 with 90 pulses and 30 resets. Keeping the original map passed 24. | [Decisions, evidence and both simulated outcomes](results/recalibration-switch.json) |
 | 10 · Transfer the right teacher segment | [A rotary teacher and a sliding student](videos/10-cross-body-teacher.mp4) | Matching object-motion segments passed 9/9 starts. Cyclically shuffled segments passed 0/9, a fixed lift passed 3/9, and a plain pull passed 0/9. This intervention isolates demonstration content, with the query supplied by the evaluator. | [Teacher observations and 36 student trials](results/keyed-teacher.json) |
+| 11 · Integrated teaching test | [When does the student get the right lesson?](videos/11-teaching-decisions.mp4) | With unseen gate heights and a rotary teacher, Qwen passed 5/8 teaching episodes (15/24 starts). It never requested a demonstration on a normally mapped keyed drawer. The fixed rule passed 8/8 episodes (24/24 starts). | [Qwen3-8B](results/integrated-qwen-observed.json) · [Rule](results/integrated-rule.json) |
 
-**What the films show.** The teal tool, gold handle and red stop are positioned from the simulation traces. Each decision follows the observed motion. The final shot uses a fresh fixture, the largest held-out gap, and the frozen student without Qwen or teacher access. These RTX replays illustrate two- and three-axis mechanisms with common Cartesian axes. No physical robots have been tested. The PyODE replication runs ODE directly and does not use the Webots application.
+**Reading the films.** The early drawer films replay measured simulator poses with RTX lighting. The later engineering views show hinge centres, trajectories, or a cross-section through the catch. Qwen sees measurements. Cause labels, geometry, and aggregate test scores are for the viewer. All results are simulated. The second engine is native ODE, independent of Isaac PhysX. Webots and real hardware remain unevaluated.
 
-**How to interpret the evidence.** The learner has two writable parameters and a predefined action menu. A fixed rule already solves these fixtures. The student has yet to demonstrate calibration of arbitrary joints or strategy transfer between articulated robot families. The next comparison measures whether an event-triggered call schedule can save agent calls while preserving success.
-
+**Limits.** Each drawer skill stores polarity and a lift target. The reaching student stores a local motor map. Both start with an engineered action menu, calibrated measurements, and repeatable resets. Three final starts in an episode share one learned skill. They measure robustness to starting state and do not provide three independent estimates of teaching quality.
 
 ## Combined-fault protocol
 
@@ -32,10 +32,6 @@ After running the two single-fault fixtures, freeze the observation adapter, pro
 ## Registered follow-up on agent call timing
 
 On the independent ODE fixture, hold the Qwen weights, decision prompt, derived measurements, student update rule and five-decision budget fixed. Compare calling Qwen at every decision with a scheduler that automatically practices after a probe or demonstration and automatically freezes after observed success. Qwen still chooses the diagnostic intervention after a failed practice. Use a new student response gain of 0.92 and a 6 mm training gap. Run all four fault combinations, including the nominal control, for both supervisors and the fixed rule. Record the number of model calls, teacher requests, physical practice seconds and independent successes. This tests the proposed division of work between a numerical controller and the language model. A reduction in calls is only desirable if independent performance is preserved.
-
-## Reaching protocol
-
-Test the original 10 cm instruction in a planar workspace on a two-joint arm and a three-joint arm. Hide link geometry and scramble command-channel order and signs. A bounded single-channel pulse estimates one column of a local action-to-endpoint map. Compare fixed calibration, no calibration, and Qwen choosing which channel to investigate or when to test. The teacher option returns an endpoint trace from the other morphology. Freeze the fitted matrix and score previously unused starts with a 10 mm tolerance. This experiment addresses discovery of movement directions beyond the two-parameter drawer skill.
 
 ### Cost of the call schedules
 
@@ -47,6 +43,10 @@ Test the original 10 cm instruction in a planar workspace on a two-joint arm and
 
 The scheduled variant can still assess prematurely after a failed practice. Its zero teacher cost came with an unsolved combined fault. The fixed rule remains the strongest method on these restricted fixtures. [Rule single-fault trials](results/shifted-rule-paired.json) · [Rule combined and nominal trials](results/shifted-rule-transfer.json)
 
+
+## Reaching protocol
+
+Test the original 10 cm instruction in a planar workspace on a two-joint arm and a three-joint arm. Hide link geometry and scramble command-channel order and signs. A bounded single-channel pulse estimates one column of a local action-to-endpoint map. Compare fixed calibration, no calibration, and Qwen choosing which channel to investigate or when to test. The teacher option returns an endpoint trace from the other morphology. Freeze the fitted matrix and score previously unused starts with a 10 mm tolerance. This experiment addresses discovery of movement directions beyond the two-parameter drawer skill.
 
 The reaching film shows measured hinge centres and tool paths. Each +0.07 rad pulse starts at the calibration posture. The student stores a two-dimensional endpoint response for that channel. Qwen repeated measurements already in memory until the decision budget expired. Some of its explanations quoted displacements before they had been measured. The student always fits the map using simulator observations. A torque-driven commissioning check caught an immobile velocity-drive setup before scored trials. [Reproduction notes](experiments/reach/README.md)
 

@@ -29,7 +29,11 @@ def audit(path):
                 assert all(
                     all(t[k] == f[k] for k in f) for t, f in zip(trace, segment)
                 ), name
-                skill["lift_mm"] = min(80, max(f["handle_z_mm"] for f in segment) + 6)
+                skill["lift_mm"] = min(
+                    80,
+                    max(f["handle_z_mm"] for f in segment)
+                    + case.get("clearance_mm", 6),
+                )
                 totals["queries"] += 1
                 totals["teacher_s"] += duration
             else:
