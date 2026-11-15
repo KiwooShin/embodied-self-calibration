@@ -24,7 +24,7 @@
 **How to interpret the evidence.** The learner has two writable parameters and a predefined action menu. A fixed rule already solves these fixtures. The student has yet to demonstrate calibration of arbitrary joints or strategy transfer between articulated robot families. The next comparison measures whether an event-triggered call schedule can save agent calls while preserving success.
 
 
-## Protocol for the next evaluation
+## Combined-fault protocol
 
 After running the two single-fault fixtures, freeze the observation adapter, prompt, student update rules, budgets, teacher script, and threshold. Evaluate the two remaining cells of the horizontal-channel-polarity × latch-presence design: both faults together and neither fault. Score three frozen-student starts per cell. Run the telemetry rule and Qwen with the derived task score. Report all outcomes, including early stops and unsuccessful tests. The comparison measures compositional diagnostics within this fixture. The cases share the same two-axis student geometry.
 
@@ -56,7 +56,7 @@ Freeze the one-posture controller and measure where it stops working. Sweep init
 
 The two-link arm improved from 61/104 to 81/104. Of all 208 targets, 173 intersected the geometric reach annulus with the 10 mm tolerance. The other 35 are retained in the denominator and failed both controllers. The annulus is a necessary reach condition and ignores joint limits. Local refitting uses two or three additional pulses per start. The eight directions at a posture reuse that map.
 
-## Next experiment: when to recalibrate
+## Recalibration decision protocol
 
 Use the first commanded movement as a diagnostic. Compare four choices on a new three-link grid: always keep the map, always reset and reprobe, switch when prediction residual exceeds a threshold selected on the two-link arm, or ask Qwen. Select the threshold on two-link data by maximizing success minus 0.05 per extra probe. The held-out grid has six new posture shifts (−72°, −36°, −12°, +12°, +36°, +72°) and eight targets offset 22.5° from the previous directions. Each Qwen call receives only goal displacement, measured and predicted first-step motion, residual, remaining error, and reprobe cost. Report successes and probes separately. Reprobing requires a reset to the original start; count this reset explicitly.
 
@@ -71,3 +71,7 @@ A single demonstration with a fixed lift might work as a generic script. Compare
 ## Integrated test protocol
 
 Test the frozen scored-report Qwen supervisor and fixed rule on new passage heights (16, 34, and 52 mm), plus an unrestricted drawer. Cross each with normal and reversed student polarity. In every case the teacher uses a rotary lift and the student uses two linear channels. Give each supervisor five decision slots and hide the gate assignment. A teacher request returns only the measured handle trajectory before the drawer first travels 5 mm. The student stores peak lift plus a fixed 3 mm clearance. Report all eight cases, and independent outcomes from three starts per case.
+
+## Paired model-size comparison
+
+Repeat the eight integrated teaching cases with Qwen3-32B Q4_K_M. Freeze the prompt, observation adapter, student, fixtures, teacher, action schema, decision budget, quantization family and seed. Keep llama.cpp revision, CPU thread count and disabled reasoning mode aligned with the 8B run. Compare episode-level choices, independent success, teacher requests, simulation time, model calls and measured decision latency. The same cases support a matched model comparison; they do not establish generalization to another task family.
