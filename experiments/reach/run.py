@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from math import atan2, cos, sin
+from math import cos, sin
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -78,8 +78,8 @@ class Arm:
                 self.trace.append(self.points())
 
 
-def probe(name, channel):
-    rig = Arm(name)
+def probe(name, channel, shift=0.0):
+    rig = Arm(name, shift)
     start = rig.endpoint()
     cmd = np.zeros(len(rig.joints))
     cmd[channel] = PULSE
@@ -87,9 +87,9 @@ def probe(name, channel):
     return (rig.endpoint() - start) / PULSE, rig.trace
 
 
-def reach(name, model, shift):
+def reach(name, model, shift, displacement=(-0.10, 0.0)):
     arm = Arm(name, shift)
-    goal = arm.endpoint() + [-0.10, 0.0]
+    goal = arm.endpoint() + displacement
     # The matrix is frozen. Only endpoint measurement and goal error change.
     for _ in range(12):
         error = goal - arm.endpoint()

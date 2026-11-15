@@ -1,0 +1,3126 @@
+{
+ "two_link": [
+  {
+   "posture_deg": -90,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 24.966,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.491,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.528,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.369,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.119,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.749,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.201,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.75,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 47.733,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.328,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 138.622,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.579,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 108.601,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.67,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 30.299,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.086,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 19.998,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.599,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.591,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.174,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.946,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.482,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.889,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.782,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.09,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.859,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 44.261,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.208,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 35.096,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.48,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 33.07,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.844,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.854,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.605,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.685,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.161,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.189,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.322,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.578,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.636,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.884,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.137,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.832,
+    "commands": 10
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.076,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 35.558,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.97,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 28.668,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.764,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.161,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.226,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.88,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.154,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.668,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.336,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.791,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.192,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.329,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.653,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.359,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.016,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 10.224,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.614,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.785,
+    "commands": 8
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.573,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.471,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.751,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.904,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.634,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 1.996,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.668,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.443,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.512,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.531,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.162,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.701,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.994,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.999,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.439,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.551,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.399,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.439,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.532,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.147,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.489,
+    "commands": 7
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.278,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.075,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 1.453,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.824,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.369,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.183,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 1.787,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.43,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.353,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.436,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.543,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.923,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.19,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.19,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 50.859,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 50.859,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.229,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.229,
+    "commands": 6
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.673,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.673,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.979,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.979,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.848,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.848,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.558,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.558,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.569,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.569,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.543,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.665,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 124.871,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 87.08,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 238.163,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 121.427,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.647,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.868,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.671,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.589,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.985,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.968,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.382,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.279,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.163,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.112,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.919,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.834,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 393.621,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 127.963,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 334.104,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 334.075,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 135,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 257.634,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 145.433,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.388,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.267,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.537,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.619,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.714,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.469,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.449,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.736,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.236,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.856,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 405.221,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 185.185,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 357.381,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 357.381,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 135,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 282.614,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 282.614,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.547,
+    "commands": 11
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.052,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.185,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.817,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.17,
+    "commands": 8
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.12,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.552,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.851,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.835,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.046,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 411.901,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 325.56,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 377.484,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 377.484,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 135,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 308.715,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 308.715,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 236.047,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.625,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 211.755,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.908,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 43.632,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 15.696,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.276,
+    "commands": 8
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.843,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 13.843,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.1,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 413.448,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 413.448,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 393.621,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 393.621,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 135,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 334.104,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 334.104,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 180,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 257.598,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 257.633,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 140.44,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.936,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 89.532,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 15.436,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 48.341,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.732,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 56.303,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.243,
+    "commands": 7
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 409.816,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 409.816,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 405.221,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 405.221,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 135,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 357.381,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 357.381,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 180,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 282.586,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 282.614,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 159.724,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.67,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 234.24,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 20.779,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 62.138,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.445,
+    "commands": 6
+   }
+  }
+ ],
+ "three_link": [
+  {
+   "posture_deg": -90,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 232.305,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.727,
+    "commands": 7
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 157.784,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.13,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 77.252,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.265,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 249.452,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.705,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 295.961,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.92,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 372.479,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.073,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 430.937,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.43,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -90,
+   "direction_deg": 315,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 298.063,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 47.604,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 0,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 206.733,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 179.822,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 162.879,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.538,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 90.953,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.266,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 158.386,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.416,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 281.056,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 0.572,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 352.423,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.656,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 422.452,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.991,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -75,
+   "direction_deg": 315,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 214.712,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 148.758,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 0,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 192.532,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 209.857,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 168.566,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 106.229,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 102.361,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.391,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 12.398,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 0.418,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 112.735,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.996,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 178.726,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.385,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 142.296,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.034,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -60,
+   "direction_deg": 315,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 170.978,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 203.743,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 0,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 182.632,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 193.643,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 164.506,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 164.506,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 110.332,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.228,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.827,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.786,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.259,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.773,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 36.405,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 0.861,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 45.769,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.738,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -45,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 136.767,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 40.116,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 0,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 173.629,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 174.235,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 154.651,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 154.651,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.301,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.795,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.562,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.174,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.071,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.749,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.718,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.315,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.708,
+    "commands": 10
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.982,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -30,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.499,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.117,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 0,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 154.57,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 153.144,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 140.81,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 140.81,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 86.752,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 44.127,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 1.673,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.345,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.015,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.318,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.188,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.934,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.575,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.633,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": -15,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.36,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.404,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.693,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.693,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 45,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 126.563,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 126.563,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 81.941,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 81.941,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 4.302,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.302,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 1.685,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.685,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.316,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.316,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.125,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.125,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 0,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.215,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.215,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.82,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.674,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 31.63,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 19.697,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 90,
+   "within_radial_bound": false,
+   "frozen": {
+    "passed": false,
+    "error_mm": 37.165,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 25.355,
+    "commands": 12
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.211,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.835,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 7.776,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.347,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.77,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.884,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.415,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.078,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 15,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.078,
+    "commands": 2
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.364,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.759,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.888,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 2.017,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.193,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.717,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.547,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.55,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.508,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 9.982,
+    "commands": 9
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.739,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.985,
+    "commands": 10
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.69,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.766,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.167,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 30,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.309,
+    "commands": 3
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.052,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 6.843,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.163,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.716,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.567,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.826,
+    "commands": 4
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.279,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 5.697,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.136,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 35.693,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.969,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 45.793,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.279,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 11.373,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.809,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 45,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 3.928,
+    "commands": 5
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.801,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.467,
+    "commands": 6
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 9.538,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 8.258,
+    "commands": 10
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.214,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": true,
+    "error_mm": 0.088,
+    "commands": 7
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.447,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 11.493,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.277,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 58.418,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.885,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 297.71,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.475,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 262.887,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.391,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 60,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 25.94,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.392,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 28.369,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.712,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 198.127,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.568,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 145.091,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.662,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 71.589,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 2.728,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 51.736,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.249,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 355.189,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 6.852,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 306.528,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.469,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 75,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 197.18,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 5.863,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 0,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 152.081,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.379,
+    "commands": 2
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 45,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 231.94,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 8.988,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 90,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 185.13,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 1.165,
+    "commands": 5
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 135,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 113.638,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 3.028,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 180,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 277.466,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 4.537,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 225,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 442.762,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.381,
+    "commands": 3
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 270,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 373.162,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": true,
+    "error_mm": 7.94,
+    "commands": 4
+   }
+  },
+  {
+   "posture_deg": 90,
+   "direction_deg": 315,
+   "within_radial_bound": true,
+   "frozen": {
+    "passed": false,
+    "error_mm": 301.341,
+    "commands": 12
+   },
+   "refitted": {
+    "passed": false,
+    "error_mm": 90.797,
+    "commands": 12
+   }
+  }
+ ]
+}

@@ -14,3 +14,5 @@ python experiments/reach/film.py results/reach-qwen.json runs/reach.mp4 --encode
 ```
 
 Physics uses a 960 Hz step, bounded torques, 0.6 simulated seconds per command, and a 20 Hz trace. Each held-out start resets the simulator and retains only the learned matrix. The optional teacher computes its own movement on the other morphology and returns its endpoint trajectory relative to its starting position. No teacher request occurred in the recorded Qwen run.
+
+For the workspace sweep, run workspace.py with the saved Qwen calibration JSON and a fresh output filename using the ODE Python environment. Then run workspace_film.py with the sweep JSON, a new MP4 filename and the selected FFmpeg encoder. Each body contributes 13 posture shifts × 8 directions. Local refitting is a diagnostic baseline with access to repeatable resets.
