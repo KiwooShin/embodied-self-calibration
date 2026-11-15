@@ -1,6 +1,6 @@
 # Cross-body walking pilot
 
-A long, 4.50 kg quadruped executes a scripted diagonal gait. Each leg has roll, hip pitch and knee pitch. The 2.95 kg student has just hip and knee pitch, shorter and differently proportioned legs, its own stride period (0.46 s versus the teacher's 0.56 s) and its own foot-placement controller. Both trunks float under gravity in MuJoCo. Both controllers start with local inverse kinematics, an upright stance and anatomically labelled feet. Only the student motor permutation, signs and gait phase are initially unknown to its learner. These are procedural research mechanisms. No external robot assets or pretrained walking policies are required.
+A long, 4.50 kg quadruped executes a scripted diagonal gait. Each leg has roll, hip pitch and knee pitch. The scripted source policy holds the four roll targets at neutral while the pitch joints drive its gait. The 2.95 kg student has just hip and knee pitch, shorter and differently proportioned legs, its own stride period (0.46 s versus the teacher's 0.56 s) and its own foot-placement controller. Both trunks float under gravity in MuJoCo. Both controllers start with local inverse kinematics, an upright stance and anatomically labelled feet. Only the student motor permutation, signs and gait phase are initially unknown to its learner. These are procedural research mechanisms. No external robot assets or pretrained walking policies are required.
 
 ## Student, teacher and assessment
 
@@ -29,3 +29,20 @@ python -m pytest -q experiments/locomotion/tests
 The primary seeds are 410–421. Secondary foot-height and contact observations use seeds 510–521. The exploratory two-stage query policy uses seeds 610–621. Each comparison uses its own paired no-teacher control. The numerical label-swap control exchanges the hind-foot phase estimates while retaining the other observations and budget. The three cohorts share one student morphology and three deterministic held-out starts. The demonstration-query gate is calibrated on neither held-out successes nor hidden trial scores. An initial unscored commissioning request exceeded a 96-token reply limit; the frozen scored interface allows 192 tokens and caps the reason at 120 characters.
 
 The simulations use the [MuJoCo Python bindings](https://mujoco.readthedocs.io/en/stable/python.html). The robot-to-robot timing abstraction has a related precedent in [learning locomotion skills by imitating animals](https://xbpeng.github.io/projects/Robotic_Imitation/).
+
+## Audit and replay
+
+The raw logs under `results/` retain training actions, best checkpoints, per-start evaluations, signed channel responses and every distinct model request. The aggregate is regenerated with the metrics command. To rerun all archived decisions and physics on the reference environment, use the following command. It fails if any inference is missing and never calls a model.
+
+```bash
+python -m experiments.locomotion.verify results/locomotion-gait.json \
+  results/locomotion-gait-height.json results/locomotion-gait-gated.json
+python -m experiments.locomotion.controls runs/locomotion-transfer-controls.json
+```
+
+The film re-simulates the first seed in which the two-stage agent requested a lesson, comparing its frozen checkpoint to the same practice budget without a teacher. The first hidden slope is selected irrespective of outcome. Each replay is checked against the archived evaluation. Rebuild with FFmpeg, a headless MuJoCo renderer, the Piper CLI and its [LJSpeech medium voice](https://huggingface.co/rhasspy/piper-voices/blob/1162a9173d0ce503555aed757976b7a9912eae4c/en/en_US/ljspeech/medium/MODEL_CARD). The local Spark used the libopenh264 encoder.
+
+```bash
+MUJOCO_GL=egl python -m experiments.locomotion.film runs/gait-film.mp4 \
+  --replay runs/gait-replay.json --voice /path/to/en_US-ljspeech-medium.onnx
+```

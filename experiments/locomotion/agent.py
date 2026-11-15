@@ -100,6 +100,8 @@ def decide(
     key = hashlib.sha256(raw).hexdigest()
     cached = key in archive
     if not cached:
+        if not endpoint:
+            raise ValueError(f"Missing archived Qwen decision {key}")
         request = Request(
             endpoint.rstrip("/") + "/chat/completions",
             data=raw,

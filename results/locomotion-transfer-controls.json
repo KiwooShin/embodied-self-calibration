@@ -1,0 +1,423 @@
+{
+ "standing": {
+  "quarters": null,
+  "starts": [
+   {
+    "distance": 0.00075,
+    "lateral": 0.0,
+    "min_upright": 0.99966,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "work_j": 0.003,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": -0.00136,
+    "lateral": 0.0,
+    "min_upright": 0.99969,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "work_j": 0.003,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": 1e-05,
+    "lateral": 0.0,
+    "min_upright": 1.0,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "work_j": 0.0,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": false
+   }
+  ],
+  "passed": 0
+ },
+ "contact": {
+  "quarters": [
+   0,
+   3,
+   2,
+   1
+  ],
+  "starts": [
+   {
+    "distance": 0.80347,
+    "lateral": 0.25037,
+    "min_upright": 0.99468,
+    "body_contact": false,
+    "airborne_fraction": 0.059375,
+    "touchdowns": [
+     16,
+     19,
+     7,
+     7
+    ],
+    "work_j": 43.782,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": 0.75272,
+    "lateral": 0.11508,
+    "min_upright": 0.98775,
+    "body_contact": false,
+    "airborne_fraction": 0.053125,
+    "touchdowns": [
+     15,
+     13,
+     12,
+     7
+    ],
+    "work_j": 48.121,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 0.77388,
+    "lateral": 0.27216,
+    "min_upright": 0.99153,
+    "body_contact": false,
+    "airborne_fraction": 0.05,
+    "touchdowns": [
+     21,
+     15,
+     8,
+     7
+    ],
+    "work_j": 45.638,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": false
+   }
+  ],
+  "passed": 1
+ },
+ "height": {
+  "quarters": [
+   0,
+   2,
+   2,
+   0
+  ],
+  "starts": [
+   {
+    "distance": 1.12439,
+    "lateral": 0.04289,
+    "min_upright": 0.99824,
+    "body_contact": false,
+    "airborne_fraction": 0.009375,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     7
+    ],
+    "work_j": 40.281,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 1.08146,
+    "lateral": 0.08399,
+    "min_upright": 0.99711,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     6
+    ],
+    "work_j": 40.148,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 1.10127,
+    "lateral": 0.09527,
+    "min_upright": 0.99837,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     6
+    ],
+    "work_j": 40.042,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": true
+   }
+  ],
+  "passed": 3
+ },
+ "source_oscillator_reference": {
+  "quarters": [
+   0,
+   2,
+   2,
+   0
+  ],
+  "starts": [
+   {
+    "distance": 1.12439,
+    "lateral": 0.04289,
+    "min_upright": 0.99824,
+    "body_contact": false,
+    "airborne_fraction": 0.009375,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     7
+    ],
+    "work_j": 40.281,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 1.08146,
+    "lateral": 0.08399,
+    "min_upright": 0.99711,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     6
+    ],
+    "work_j": 40.148,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 1.10127,
+    "lateral": 0.09527,
+    "min_upright": 0.99837,
+    "body_contact": false,
+    "airborne_fraction": 0.0,
+    "touchdowns": [
+     7,
+     7,
+     7,
+     6
+    ],
+    "work_j": 40.042,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": true
+   }
+  ],
+  "passed": 3
+ },
+ "contact_swapped": {
+  "quarters": [
+   0,
+   3,
+   1,
+   2
+  ],
+  "starts": [
+   {
+    "distance": 0.57864,
+    "lateral": 0.16677,
+    "min_upright": 0.97053,
+    "body_contact": false,
+    "airborne_fraction": 0.3625,
+    "touchdowns": [
+     17,
+     15,
+     17,
+     16
+    ],
+    "work_j": 55.817,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": 0.56853,
+    "lateral": 0.22801,
+    "min_upright": 0.98085,
+    "body_contact": false,
+    "airborne_fraction": 0.2125,
+    "touchdowns": [
+     14,
+     15,
+     13,
+     14
+    ],
+    "work_j": 57.361,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": 0.25099,
+    "lateral": 0.13361,
+    "min_upright": 0.91246,
+    "body_contact": false,
+    "airborne_fraction": 0.328125,
+    "touchdowns": [
+     18,
+     11,
+     10,
+     11
+    ],
+    "work_j": 60.912,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": false
+   }
+  ],
+  "passed": 0
+ },
+ "height_swapped": {
+  "quarters": [
+   0,
+   2,
+   0,
+   2
+  ],
+  "starts": [
+   {
+    "distance": 0.90711,
+    "lateral": 0.09558,
+    "min_upright": 0.9759,
+    "body_contact": false,
+    "airborne_fraction": 0.153125,
+    "touchdowns": [
+     9,
+     12,
+     12,
+     13
+    ],
+    "work_j": 42.86,
+    "start": {
+     "friction": 0.7,
+     "tilt": 0.025,
+     "yaw": 0.06
+    },
+    "passed": false
+   },
+   {
+    "distance": 0.88535,
+    "lateral": 0.05516,
+    "min_upright": 0.97957,
+    "body_contact": false,
+    "airborne_fraction": 0.021875,
+    "touchdowns": [
+     7,
+     9,
+     10,
+     13
+    ],
+    "work_j": 44.174,
+    "start": {
+     "friction": 1.05,
+     "tilt": -0.025,
+     "yaw": -0.06
+    },
+    "passed": true
+   },
+   {
+    "distance": 0.88267,
+    "lateral": 0.12691,
+    "min_upright": 0.9755,
+    "body_contact": false,
+    "airborne_fraction": 0.08125,
+    "touchdowns": [
+     8,
+     9,
+     11,
+     13
+    ],
+    "work_j": 43.726,
+    "start": {
+     "friction": 0.83,
+     "tilt": 0,
+     "yaw": 0.1
+    },
+    "passed": true
+   }
+  ],
+  "passed": 2
+ }
+}

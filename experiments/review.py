@@ -11,6 +11,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments/drawer"))
 sys.path.insert(0, str(ROOT / "paper"))
+from locomotion.metrics import scores as gait_scores
 from model_results import summarize_conditions
 from observations import BIASES, GAPS, GATES, SIGMAS, estimate, run, summarize
 from verify import audit
@@ -90,8 +91,12 @@ def audit_artifacts(ledger: str) -> None:
         assert observed["starts"] == 24
         for key in ("passed", "queries", "calls"):
             assert observed[key] == table[method][key], (method, key)
+    gait_table = json.loads((ROOT / "results/locomotion-summary.json").read_text())
+    for name in ("locomotion-gait", "locomotion-gait-height", "locomotion-gait-gated"):
+        record = json.loads((ROOT / "results" / (name + ".json")).read_text())
+        assert gait_scores(record) == gait_table[name], name
     print(
-        f"Verified the six-page PDF, {len(videos)} films and three supervisors' recorded teaching histories."
+        f"Verified the six-page PDF, {len(videos)} films and the drawer histories and all three locomotion cohorts."
     )
     validate(json.loads((ROOT / "results/teacher-observation-errors.json").read_text()))
 
