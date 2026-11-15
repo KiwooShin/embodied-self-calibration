@@ -85,3 +85,9 @@ Write a six-page empirical research report with the experimental unit, source of
 
 
 **Manuscript checkpoint.** The six-page draft now compiles and is linked above. Figures 1–3 were regenerated from the keyed trials, full reaching sweep, and attributed DROID film. Page 4 separates episode counts from repeated execution starts. The original 8B runs and rule totals have been audited. The paired 32B run is executing on the Spark, and its incomplete observations are excluded from the draft. The final review will regenerate Tables 2–3, inspect rendered pages, validate the remote PDF, and publish a paper walkthrough.
+
+## Next experiment registered before execution · observation error
+
+The keyed demonstration study assumes an accurate handle-height measurement. Repeat its matched teacher transfer at the original three passages (12, 30, 48 mm), with the same 3, 8 and 12 mm test gaps, 3 mm clearance and 60 mm success threshold. Give the student measured handle heights corrupted by a constant alignment error (−6, 0, +6 mm) and independent per-frame Gaussian error (standard deviations 0, 2 and 4 mm). Retain the clean first-translation event and exact student control. This isolates the vertical observation channel. The noise levels are experimental settings and do not estimate DROID camera accuracy.
+
+Compare the current peak estimator with a prespecified alternative: apply a causal three-sample median to observed heights, discard the first two frames without a full window, and then take the peak. Use the same noisy frames and starts for both methods. First run seeds 0–3 and publish all cells and costs. Report gains and regressions separately, counting clean repetitions once. A recurring repository review can replay an additional paired seed, verify the six-page PDF and audit the model tables against frozen-student traces. A physical calibration and a different-body locomotion task remain separate next tests.
