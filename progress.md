@@ -4,7 +4,7 @@
 
 [![Two simulated drawer trials, with measured tool travel and a 60 mm success threshold](videos/briefing-preview.jpg)](videos/research-briefing.mp4)
 
-**Current status.** Eight milestone films are published. A 48-trial held-out experiment is running to compare Qwen with a residual threshold for deciding when to recalibrate. Its decision protocol is recorded below.
+**Current status.** Nine milestone films are published. A numeric threshold learned on the two-link arm matched Qwen on 48 held-out three-link reaching tasks while spending 54 fewer probe pulses. The next experiment isolates the value of selecting a demonstration from the correct fixture.
 
 | Milestone | Film | Finding | Recorded trials |
 | --- | --- | --- | --- |
@@ -16,6 +16,7 @@
 | 6 · Agent call timing | [One student, two ways to call Qwen](videos/06-call-schedule.mp4) | On the shifted fixtures, scheduling cut model calls from 13 to 7. Frozen-student success fell from 9/12 to 6/12. The scheduled agent used zero teacher demonstrations and missed the combined fault. | [Every decision, paired](results/shifted-qwen-observed-paired.json) · [combined/nominal](results/shifted-qwen-observed-transfer.json) · [scheduled, paired](results/shifted-qwen-scheduled-paired.json) · [combined/nominal](results/shifted-qwen-scheduled-transfer.json) |
 | 7 · Learn “10 cm left” | [Two-link and three-link arms](videos/07-ten-centimetres.mp4) | Both frozen motor maps passed 6/6 posture tests. Qwen used nine probes across the two bodies. Probing each channel once used five and reached the same final errors (3.0–8.4 mm). With zero calibration, all six errors remained 100 mm. | [Qwen](results/reach-qwen.json) · [All channels](results/reach-all_channels.json) · [Untrained](results/reach-untrained.json) |
 | 8 · Workspace stress test | [How far does one calibration transfer?](videos/08-workspace.mp4) | Across 208 posture/direction pairs, one frozen map passed 102. Refitting at each posture passed 166. The three-link arm improved from 41/104 to 85/104. | [All paired outcomes](results/workspace-sweep.json) |
+| 9 · Decide when to recalibrate | [Is this motor map still useful?](videos/09-recalibrate.mp4) | Qwen chose to reprobe on every one of 48 trials. It passed 39, using 144 extra pulses and 48 resets. The two-link residual threshold passed 39 with 90 pulses and 30 resets. Keeping the original map passed 24. | [Decisions, evidence and both simulated outcomes](results/recalibration-switch.json) |
 
 **What the films show.** The teal tool, gold handle and red stop are positioned from the simulation traces. Each decision follows the observed motion. The final shot uses a fresh fixture, the largest held-out gap, and the frozen student without Qwen or teacher access. These RTX replays illustrate two- and three-axis mechanisms with common Cartesian axes. No physical robots have been tested. The PyODE replication runs ODE directly and does not use the Webots application.
 
@@ -59,3 +60,8 @@ The two-link arm improved from 61/104 to 81/104. Of all 208 targets, 173 interse
 Use the first commanded movement as a diagnostic. Compare four choices on a new three-link grid: always keep the map, always reset and reprobe, switch when prediction residual exceeds a threshold selected on the two-link arm, or ask Qwen. Select the threshold on two-link data by maximizing success minus 0.05 per extra probe. The held-out grid has six new posture shifts (−72°, −36°, −12°, +12°, +36°, +72°) and eight targets offset 22.5° from the previous directions. Each Qwen call receives only goal displacement, measured and predicted first-step motion, residual, remaining error, and reprobe cost. Report successes and probes separately. Reprobing requires a reset to the original start; count this reset explicitly.
 
 The overview uses locally synthesized narration with the [Piper LJSpeech voice](https://huggingface.co/rhasspy/piper-voices/blob/1162a9173d0ce503555aed757976b7a9912eae4c/en/en_US/ljspeech/medium/MODEL_CARD). [Narration and edit script](experiments/media/briefing.py)
+
+
+## Cross-body demonstration control
+
+A single demonstration with a fixed lift might work as a generic script. Compare a matching teacher segment against a cyclically mismatched segment, a fixed-height lift, and no demonstration. Give a prismatic student and a rotary-lift teacher the same drawer goal. Change the catch's vertical passage across three fixtures, so that excessive lift can also fail. Freeze the student's measured handle subgoal, disconnect the teacher, and test at three new initial pin gaps. Keep the acquisition and scoring rules common to matched and mismatched demonstrations.

@@ -1,0 +1,1878 @@
+{
+ "threshold": 0.5182,
+ "prompt": "After the first movement of a planar reaching skill, decide whether to keep\nthe current local motor map or reset and reprobe every channel. You see an endpoint\ngoal and the displacement predicted and actually measured during the first move.\nThe target is within 10 mm of the goal. A refit costs three extra bounded pulses\nand a reset. Seek high success while avoiding needless probes. A residual ratio\nof zero means perfect predicted first-step motion. Recalibration cannot make an\nunreachable goal reachable. Return one action and a brief evidence sentence. /no_think",
+ "rows": [
+  {
+   "posture_deg": -72,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     17.95,
+     -3.65
+    ],
+    "remaining_mm": 85.43,
+    "residual_ratio": 1.0146,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio is slightly above 1, indicating imperfect prediction, and the remaining distance is still significant. Reprobing ensures better accuracy for subsequent steps without risking an unreachable goal."
+   },
+   "qwen_latency_s": 7.821,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 188.368,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 147.952,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     17.95,
+     -3.65
+    ],
+    "remaining_mm": 98.16,
+    "residual_ratio": 1.0146,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio is slightly above 1, indicating some prediction error, and the remaining distance is still significant. A reprobe will refine the local motor map for better accuracy without risking an unreachable goal."
+   },
+   "qwen_latency_s": 5.068,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 132.181,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 2.408,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     17.86,
+     -2.31
+    ],
+    "remaining_mm": 110.08,
+    "residual_ratio": 0.997,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "High residual ratio indicates significant prediction error; reprobe to refine the local motor map for better accuracy."
+   },
+   "qwen_latency_s": 3.984,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 52.626,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 7.495,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -6.24,
+     94.19
+    ],
+    "remaining_mm": 102.71,
+    "residual_ratio": 1.0267,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates a significant error in the initial movement, suggesting the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.281,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 173.851,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 5.453,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -26.58,
+     11.21
+    ],
+    "remaining_mm": 82.33,
+    "residual_ratio": 1.208,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.102,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 301.41,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 5.425,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -26.58,
+     11.21
+    ],
+    "remaining_mm": 104.25,
+    "residual_ratio": 1.208,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.248,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 386.401,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 7.844,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     -26.24,
+     9.88
+    ],
+    "remaining_mm": 120.91,
+    "residual_ratio": 1.1953,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure success without unnecessary probes."
+   },
+   "qwen_latency_s": 4.201,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 155.98,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 43.164,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -72,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     -22.65,
+     -98.99
+    ],
+    "remaining_mm": 130.08,
+    "residual_ratio": 1.3009,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio is high, indicating significant prediction error. A reprobe is necessary to refine the local motor map and improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.562,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 208.93,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 194.833,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     22.75,
+     13.53
+    ],
+    "remaining_mm": 73.9,
+    "residual_ratio": 0.6433,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.6433 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.585,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 174.009,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 174.009,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     22.75,
+     13.53
+    ],
+    "remaining_mm": 80.37,
+    "residual_ratio": 0.6433,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.6433 indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary risk."
+   },
+   "qwen_latency_s": 3.881,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 138.372,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 138.371,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     21.82,
+     14.74
+    ],
+    "remaining_mm": 98.19,
+    "residual_ratio": 0.6284,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.256,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 7.174,
+     "passed": true,
+     "student_commands": 5
+    },
+    "reprobe": {
+     "error_mm": 6.95,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -65.43,
+     76.54
+    ],
+    "remaining_mm": 46.82,
+    "residual_ratio": 0.4672,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant error in the initial movement, and the actual displacement is far from the predicted. A reprobe is necessary to refine the local motor map and improve accuracy."
+   },
+   "qwen_latency_s": 4.87,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 3.557,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 4.981,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -33.74,
+     -12.57
+    ],
+    "remaining_mm": 64.03,
+    "residual_ratio": 0.7601,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.76 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.485,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 7.451,
+     "passed": true,
+     "student_commands": 5
+    },
+    "reprobe": {
+     "error_mm": 7.207,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -33.74,
+     -12.57
+    ],
+    "remaining_mm": 79.95,
+    "residual_ratio": 0.7601,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.76 indicates significant prediction error, and the remaining distance is still large. Reprobing is necessary to refine the local motor map for better accuracy."
+   },
+   "qwen_latency_s": 4.974,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 17.368,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 1.774,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     -32.69,
+     -13.52
+    ],
+    "remaining_mm": 106.08,
+    "residual_ratio": 0.7543,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.131,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 8.359,
+     "passed": true,
+     "student_commands": 9
+    },
+    "reprobe": {
+     "error_mm": 4.16,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": -36,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     43.46,
+     -102.17
+    ],
+    "remaining_mm": 80.48,
+    "residual_ratio": 0.8043,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "Large residual ratio and significant displacement error indicate the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 3.914,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 150.783,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 183.426,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     16.61,
+     27.2
+    ],
+    "remaining_mm": 76.58,
+    "residual_ratio": 0.3171,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 5.035,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 147.336,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 147.336,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     16.61,
+     27.2
+    ],
+    "remaining_mm": 68.69,
+    "residual_ratio": 0.3171,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 5.522,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 123.837,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 123.837,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     15.29,
+     27.95
+    ],
+    "remaining_mm": 83.79,
+    "residual_ratio": 0.3079,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.228,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 4.886,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 7.418,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -88.7,
+     42.65
+    ],
+    "remaining_mm": 5.72,
+    "residual_ratio": 0.0554,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates some error in the initial prediction, and the remaining distance is small, suggesting a reprobe could refine the local motor map with minimal cost."
+   },
+   "qwen_latency_s": 4.621,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 5.724,
+     "passed": true,
+     "student_commands": 1
+    },
+    "reprobe": {
+     "error_mm": 5.293,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -26.38,
+     -30.66
+    ],
+    "remaining_mm": 66.44,
+    "residual_ratio": 0.3329,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.077,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 5.111,
+     "passed": true,
+     "student_commands": 2
+    },
+    "reprobe": {
+     "error_mm": 8.229,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -26.38,
+     -30.66
+    ],
+    "remaining_mm": 62.87,
+    "residual_ratio": 0.3329,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.236,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 2.082,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 1.18,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     -25.1,
+     -31.11
+    ],
+    "remaining_mm": 88.15,
+    "residual_ratio": 0.3328,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.193,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 7.386,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 3.265,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": -12,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     79.73,
+     -74.99
+    ],
+    "remaining_mm": 38.84,
+    "residual_ratio": 0.3877,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant error in the initial movement, and the remaining distance suggests the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 4.27,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 3.146,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 7.968,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     2.67,
+     36.89
+    ],
+    "remaining_mm": 89.73,
+    "residual_ratio": 0.3191,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.119,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 9.266,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 8.036,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     2.67,
+     36.89
+    ],
+    "remaining_mm": 65.94,
+    "residual_ratio": 0.3191,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.257,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 104.029,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 103.387,
+     "passed": false,
+     "student_commands": 16
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     1.25,
+     37.06
+    ],
+    "remaining_mm": 68.0,
+    "residual_ratio": 0.3228,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.163,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 7.084,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 8.488,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -90.88,
+     3.89
+    ],
+    "remaining_mm": 34.41,
+    "residual_ratio": 0.3452,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.3452 indicates significant prediction error, and the actual displacement deviates from the predicted path. A reprobe is necessary to refine the local motor map and improve accuracy without risking further misalignment."
+   },
+   "qwen_latency_s": 5.442,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 5.891,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 6.452,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -9.32,
+     -43.48
+    ],
+    "remaining_mm": 83.23,
+    "residual_ratio": 0.1618,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 3.444,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 6.593,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 2.641,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     -9.32,
+     -43.48
+    ],
+    "remaining_mm": 56.83,
+    "residual_ratio": 0.1618,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates some prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.183,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 9.203,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 4.619,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     -8.1,
+     -43.42
+    ],
+    "remaining_mm": 67.44,
+    "residual_ratio": 0.1575,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates some error in the initial prediction, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.439,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 0.355,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 3.905,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 12,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     95.66,
+     -34.28
+    ],
+    "remaining_mm": 5.16,
+    "residual_ratio": 0.0536,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates some prediction error, and the actual displacement deviates significantly from the predicted path. A reprobe will refine the local motor map for better accuracy."
+   },
+   "qwen_latency_s": 4.692,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 5.158,
+     "passed": true,
+     "student_commands": 1
+    },
+    "reprobe": {
+     "error_mm": 4.233,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     -15.97,
+     38.32
+    ],
+    "remaining_mm": 108.35,
+    "residual_ratio": 0.7277,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.125,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 6.852,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 4.047,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     -15.97,
+     38.32
+    ],
+    "remaining_mm": 76.58,
+    "residual_ratio": 0.7277,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.7277 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy while avoiding unnecessary probes."
+   },
+   "qwen_latency_s": 4.753,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 1.964,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 8.048,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     -17.18,
+     37.98
+    ],
+    "remaining_mm": 58.35,
+    "residual_ratio": 0.7295,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.7295 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.631,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 3.971,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 7.088,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -74.59,
+     -27.3
+    ],
+    "remaining_mm": 67.94,
+    "residual_ratio": 0.6807,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.68 indicates significant prediction error, and the actual displacement is far from the goal, suggesting the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 3.944,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 8.27,
+     "passed": true,
+     "student_commands": 7
+    },
+    "reprobe": {
+     "error_mm": 4.519,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     13.55,
+     -45.92
+    ],
+    "remaining_mm": 106.22,
+    "residual_ratio": 0.6786,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.131,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 23.844,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 7.403,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     13.55,
+     -45.92
+    ],
+    "remaining_mm": 69.61,
+    "residual_ratio": 0.6786,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.317,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 7.029,
+     "passed": true,
+     "student_commands": 11
+    },
+    "reprobe": {
+     "error_mm": 6.349,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     14.48,
+     -45.48
+    ],
+    "remaining_mm": 52.6,
+    "residual_ratio": 0.6701,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 0.67 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 4.436,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 8.741,
+     "passed": true,
+     "student_commands": 4
+    },
+    "reprobe": {
+     "error_mm": 3.215,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 36,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     88.64,
+     5.42
+    ],
+    "remaining_mm": 43.85,
+    "residual_ratio": 0.4398,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant error in the initial movement, and the actual displacement is far from the predicted. A reprobe is necessary to refine the local motor map and improve accuracy."
+   },
+   "qwen_latency_s": 4.914,
+   "rule": "keep",
+   "outcomes": {
+    "keep": {
+     "error_mm": 5.884,
+     "passed": true,
+     "student_commands": 3
+    },
+    "reprobe": {
+     "error_mm": 8.93,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 22.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     -41.5,
+     21.37
+    ],
+    "remaining_mm": 134.95,
+    "residual_ratio": 1.3767,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio is high, indicating significant prediction error. A reprobe is necessary to refine the local motor map and improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.41,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 19.473,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 4.591,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 67.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     16.11,
+     41.22
+    ],
+    "actual_mm": [
+     -41.5,
+     21.37
+    ],
+    "remaining_mm": 106.8,
+    "residual_ratio": 1.3767,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests further refinement is needed to ensure success without unnecessary probes."
+   },
+   "qwen_latency_s": 3.412,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 167.6,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 3.829,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 112.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     92.39
+    ],
+    "predicted_mm": [
+     14.76,
+     41.5
+    ],
+    "actual_mm": [
+     -42.1,
+     20.69
+    ],
+    "remaining_mm": 71.8,
+    "residual_ratio": 1.3747,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio of 1.3747 indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 4.51,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 102.409,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 2.404,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 157.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     38.27
+    ],
+    "predicted_mm": [
+     -92.17,
+     38.33
+    ],
+    "actual_mm": [
+     -35.63,
+     -45.25
+    ],
+    "remaining_mm": 100.98,
+    "residual_ratio": 1.0109,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates a significant prediction error, and the actual displacement is far from the goal, suggesting the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 4.55,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 26.437,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 7.445,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 202.5,
+   "observation": {
+    "goal_mm": [
+     -92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     44.6,
+     -25.93
+    ],
+    "remaining_mm": 137.55,
+    "residual_ratio": 1.4146,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the remaining distance suggests the need for recalibration to improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.178,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 313.917,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 2.412,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 247.5,
+   "observation": {
+    "goal_mm": [
+     -38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -16.11,
+     -41.22
+    ],
+    "actual_mm": [
+     44.6,
+     -25.93
+    ],
+    "remaining_mm": 106.23,
+    "residual_ratio": 1.4146,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio indicates significant prediction error, and the actual displacement deviates substantially from the goal. Reprobing is necessary to refine the local motor map and improve accuracy without unnecessary resets."
+   },
+   "qwen_latency_s": 4.976,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 313.654,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 5.109,
+     "passed": true,
+     "student_commands": 7
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 292.5,
+   "observation": {
+    "goal_mm": [
+     38.27,
+     -92.39
+    ],
+    "predicted_mm": [
+     -14.76,
+     -41.5
+    ],
+    "actual_mm": [
+     44.97,
+     -25.38
+    ],
+    "remaining_mm": 67.35,
+    "residual_ratio": 1.4046,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "The residual ratio is 1.4046, indicating significant prediction error. A reprobe is necessary to refine the local motor map and improve accuracy without unnecessary probes."
+   },
+   "qwen_latency_s": 4.894,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 229.451,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 8.446,
+     "passed": true,
+     "student_commands": 8
+    }
+   }
+  },
+  {
+   "posture_deg": 72,
+   "direction_deg": 337.5,
+   "observation": {
+    "goal_mm": [
+     92.39,
+     -38.27
+    ],
+    "predicted_mm": [
+     92.17,
+     -38.33
+    ],
+    "actual_mm": [
+     51.55,
+     38.73
+    ],
+    "remaining_mm": 87.16,
+    "residual_ratio": 0.8727,
+    "reprobe_count": 3
+   },
+   "qwen": {
+    "action": "reprobe",
+    "evidence": "Large residual ratio and significant displacement error indicate the need for recalibration to improve accuracy."
+   },
+   "qwen_latency_s": 3.753,
+   "rule": "reprobe",
+   "outcomes": {
+    "keep": {
+     "error_mm": 43.94,
+     "passed": false,
+     "student_commands": 12
+    },
+    "reprobe": {
+     "error_mm": 0.221,
+     "passed": true,
+     "student_commands": 6
+    }
+   }
+  }
+ ]
+}

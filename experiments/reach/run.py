@@ -87,6 +87,11 @@ def probe(name, channel, shift=0.0):
     return (rig.endpoint() - start) / PULSE, rig.trace
 
 
+def motor_command(model, error):
+    delta = model.T @ np.linalg.solve(model @ model.T + 0.0004 * np.eye(2), error)
+    return np.clip(delta, -0.2, 0.2)
+
+
 def reach(name, model, shift, displacement=(-0.10, 0.0)):
     arm = Arm(name, shift)
     goal = arm.endpoint() + displacement
@@ -95,8 +100,7 @@ def reach(name, model, shift, displacement=(-0.10, 0.0)):
         error = goal - arm.endpoint()
         if np.linalg.norm(error) <= 0.01:
             break
-        delta = model.T @ np.linalg.solve(model @ model.T + 0.0004 * np.eye(2), error)
-        arm.step(np.clip(delta, -0.2, 0.2))
+        arm.step(motor_command(model, error))
     mm = float(np.linalg.norm(goal - arm.endpoint()) * 1000)
     return {
         "goal": goal.tolist(),
@@ -128,7 +132,7 @@ student's motor channels. Aim for <=10 mm error on new starts with few probes
 and teacher queries. Return JSON action and brief evidence. /no_think"""
 
 
-def choose(report, actions, url):
+def choose(report, actions, url, prompt=PROMPT):
     schema = {
         "type": "object",
         "properties": {
@@ -144,7 +148,7 @@ def choose(report, actions, url):
         "seed": 13,
         "max_tokens": 150,
         "messages": [
-            {"role": "system", "content": PROMPT},
+            {"role": "system", "content": prompt},
             {"role": "user", "content": json.dumps(report)},
         ],
         "response_format": {
