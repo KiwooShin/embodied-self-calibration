@@ -35,7 +35,7 @@ class Drawer:
         if teacher:
             parent, _ = self.slide(None, (1, 0, 0), 1800)
         carriage, _ = self.slide(parent, (1, 0, 0), 1800)
-        self.tool, _ = self.slide(carriage, (0, 0, 1), 1800)
+        self.tool = self.make_lift(carriage)
         self.drawer, _ = self.slide(None, (1, 0, 0), 0, -0.001, 0.15)
         self.handle, _ = self.slide(self.drawer, (0, 0, 1), 18, 0, 0.09)
         self.teacher = teacher
@@ -47,6 +47,14 @@ class Drawer:
         self.box(self.handle, (0.034, y, 0.014), (0.016, 0.020, 0.018))
         if latched:
             self.box(None, (origin + 0.055, y, 0.014), (0.018, 0.030, 0.034))
+
+    def make_lift(self, carriage):
+        tool, _ = self.slide(carriage, (0, 0, 1), 1800)
+        return tool
+
+    def drive_targets(self, x, z):
+        horizontal = [0.35 * x, 0.65 * x] if self.teacher else [x]
+        return horizontal + [z, 0.0, 0.0]
 
     def slide(self, parent, axis, k, lo=-0.14, hi=0.16):
         body = ode.Body(self.world)
@@ -97,8 +105,8 @@ class Drawer:
         for i in range(1, n + 1):
             f = min(1.0, i / (0.75 * n))
             x, z = start_x + f * (end_x - start_x), start_z + f * (end_z - start_z)
-            horizontal = [0.35 * x, 0.65 * x] if self.teacher else [x]
-            for target, (joint, k) in zip(horizontal + [z, 0.0, 0.0], self.axes):
+            targets = self.drive_targets(x, z)
+            for target, (joint, k) in zip(targets, self.axes, strict=True):
                 force = (
                     k * (target - joint.getPosition())
                     - (12 if k else 3) * joint.getPositionRate()

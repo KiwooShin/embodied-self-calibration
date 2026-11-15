@@ -48,3 +48,7 @@ python experiments/drawer/replay.py results/drawer-qwen.json runs/raw.mp4 \
 ```
 
 The edit step requires Pillow, DejaVu Sans and FFmpeg with an H.264 encoder. The Spark run used --encoder libopenh264. Each film shows both cases, the following supervisory decision, and the largest-gap independent test. All three evaluation outcomes appear in the closing score.
+
+## Keyed passage and different joint types
+
+Run keyed.py with a new output JSON using PyODE. Render the sectional comparison with keyed_film.py, passing the JSON, the MP4 path and optionally --encoder libopenh264. The side-view projection shows the catch and passage in a plane beside the pin. The teacher can use its own fixture parameters to demonstrate the skill. A student receiving an example sees only measured object motion. Lift targets and source-fixture assignments are recorded so the shuffled-segment control can be checked.
