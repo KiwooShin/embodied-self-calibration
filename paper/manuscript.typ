@@ -27,7 +27,7 @@
 #line(length:100%,stroke:.8pt+teal)
 
 == Abstract
-When a robot fails to open a drawer, observing another robot can reveal a missing movement. The same demonstration can be wasted if the student's motor channel is reversed. We study a teaching supervisor that chooses among probing the student, requesting a segment from a differently actuated teacher, practicing, and testing the frozen student. We evaluate open-weight Qwen supervisors against a fixed telemetry rule in controlled simulation. On a keyed drawer, a sliding student given a matching rotary-teacher segment passed nine of nine starts. Shuffling the segments reduced this to zero. When Qwen3-8B had to decide whether to request that segment on new fixtures, it solved five of eight teaching episodes, compared with eight for the rule. In a separate three-link reaching evaluation, Qwen3-8B chose recalibration on all 48 trials. A prediction-error threshold developed on a two-link arm attained the same 39 successes with 54 fewer motor pulses. These experiments isolate two capabilities: transferring an informative behavior across bodies, and recognizing when acquiring that behavior is worth the interaction cost.
+When a robot fails to open a drawer, observing another robot can reveal a missing movement. The same demonstration can be wasted if the student's motor channel is reversed. We study a teaching supervisor that chooses among probing the student, requesting a segment from a differently actuated teacher, practicing, and testing the frozen student. We evaluate open-weight Qwen supervisors against a fixed telemetry rule in controlled simulation. On a keyed drawer, a sliding student given a matching rotary-teacher segment passed nine of nine starts. Shuffling the segments reduced this to zero. On eight new teaching episodes, Qwen3-8B solved five. Qwen3-32B and the rule solved all eight, requesting twelve and six demonstrations, respectively. In a separate three-link reaching evaluation, Qwen3-8B chose recalibration on all 48 trials. A prediction-error threshold developed on a two-link arm attained the same 39 successes with 54 fewer motor pulses. These experiments isolate two capabilities: transferring an informative behavior across bodies, and recognizing when acquiring that behavior is worth the interaction cost.
 
 = 1. Introduction
 A request such as “move 10 cm left” supplies a goal in the observer's frame. The student must still discover which of its motors moves the endpoint left from its current posture. A teacher with a different arm can show the effect of pushing a latch, yet its joint trajectory may be unusable on the student. Even a successful coached attempt leaves a further question: can the student perform the skill after the teacher disconnects?
@@ -76,7 +76,7 @@ table.header(th[Evaluation], th[Conditions varied], th[Experimental unit]),
 [Reaching],[2 or 3 revolute joints, anonymous channel order/sign],[Frozen map across new postures and directions])
 #cap[*Table 1.* Hidden fixture IDs and annotated causes are available to the evaluator. The eight integrated cases are matched across supervisors. The 24 independent-execution starts within each method share eight teaching histories.]
 
-Test pin gaps are 3, 8, and 12 mm. The initial practice counts toward interaction time and precedes five decision slots. Resets are automatic. Human reset labor and physical setup costs remain unmeasured.
+Test pin gaps are 3, 8, and 12 mm. The initial practice counts toward interaction time and precedes five decision slots. Resets are automatic. Human reset labor and physical setup costs remain unmeasured. The endpoint is independent performance with a fixed teaching budget. Learning speed on a new robot would require time-to-criterion curves across multiple teaching runs.
 
 #pagebreak()
 = 4. Manipulation results
@@ -90,13 +90,12 @@ On the original two single-fault cases, the 8B raw-report model passed 0/6 start
 #table(columns:(1.7fr,1fr,1fr,.8fr,.9fr,.8fr),inset:5pt,stroke:.35pt+rgb("#bac6c7"),
 table.header(th[Supervisor],th[Episodes],th[Starts],th[Calls],th[Demos],th[Probes]),
 ..row([Fixed rule],models.rule),..row([Qwen3-8B],models.small),
-..(if "large" in models {row([Qwen3-32B],models.large)} else {()}))
+..row([Qwen3-32B],models.large))
 #cap[*Table 2.* Integrated keyed drawers. An episode passes when the frozen student succeeds at all three new gaps. Calls, requested full teacher executions, and diagnostic pulses are totals across the eight teaching episodes.]
 
 The 8B model solved both open drawers and all three reversed-channel keyed drawers. It failed each normally mapped keyed drawer, for 5/8 episodes. On those failures it verified the mapped motor and continued practicing the unchanged skill. It requested four demonstrations in total, including one on an open, reversed-channel fixture. The rule requested six, one for each keyed fixture, and passed 8/8 episodes. Thus a lower query count alone would favor a method that withheld needed lessons.
 
-#let size-note = if "large" in models [Under the same prompt and episode budget, Qwen3-32B passed #models.large.episodes of eight episodes, made #models.large.calls calls and requested #models.large.queries demonstrations. Median decision latency was #models.large.latency s for 32B and #models.small.latency s for 8B on the Spark CPU. These descriptive timings include prompt processing and generation.] else [The 32B paired comparison was still running at the time of this compile.]
-#size-note
+Qwen3-32B recovered the three normally mapped keyed episodes missed by 8B. It requested #models.large.queries demonstrations, twice the rule's six. At the normal 34 mm gate it asked four times and exhausted its budget without practicing the updated skill. That skill passed all three fresh starts. Student/teacher interaction took 16.2/14.4 simulated seconds for 32B, 16.2/4.8 for 8B, and 16.8/7.2 for the rule. Median CPU call latency was #models.large.latency s for 32B and #models.small.latency s for 8B.
 
 == Does calling the agent less often help?
 On four additional ODE cases with horizontal gain 0.92 and a 6 mm training gap, automatically practicing after an update and assessing after observed success reduced Qwen calls from 13 to 7. Teacher requests fell from two to zero. Success fell from 9/12 to 6/12 starts, while student interaction increased from 7.2 to 7.8 simulated seconds. The rule passed 12/12 in 7.2 seconds with two demonstrations. Giving routine steps to a controller changed which observations reached the supervisor at its next decision.
@@ -105,7 +104,7 @@ On four additional ODE cases with horizontal gain 0.92 and a 6 mm training gap, 
 #table(columns:(1.55fr, ..(0.70fr,)*8),inset:3.5pt,stroke:.30pt+rgb("#bac6c7"),
 table.header(th[Map / gate],table.cell(colspan:4,align:center)[*Normal motor*],table.cell(colspan:4,align:center)[*Reversed motor*]),
 [Lower bound], [Open],[16],[34],[52],[Open],[16],[34],[52],
-[Qwen3-8B],..cells(models.small),..(if "large" in models {([Qwen3-32B],..cells(models.large))} else {()}),
+[Qwen3-8B],..cells(models.small),[Qwen3-32B],..cells(models.large),
 [Fixed rule],..cells(models.rule))
 #cap[*Table 3.* Held-out starts passed per teaching episode. Columns refer to lower bounds on permitted handle lift in millimetres. All supervisors have access to the same matching teacher.]
 

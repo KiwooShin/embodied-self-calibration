@@ -34,5 +34,23 @@
       "52-normal": 0,
       "52-reverse": 3
     }
+  },
+  "large": {
+    "passed": 24,
+    "episodes": 8,
+    "calls": 32,
+    "queries": 12,
+    "pulses": 7,
+    "latency": 30.4,
+    "splits": {
+      "open-normal": 3,
+      "open-reverse": 3,
+      "16-normal": 3,
+      "16-reverse": 3,
+      "34-normal": 3,
+      "34-reverse": 3,
+      "52-normal": 3,
+      "52-reverse": 3
+    }
   }
 }

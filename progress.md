@@ -1,12 +1,10 @@
 # Research progress
 
-**November 14, 2026 · DGX Spark.** [Watch the 81-second narrated briefing](videos/research-briefing.mp4) for the drawer and reaching results through milestone 8. Each film below follows a measured trial or evaluation grid.
+**November 14, 2026 · DGX Spark.** [Read the six-page paper](paper/embodied-self-calibration.pdf) · [Watch the narrated paper walkthrough](videos/15-paper-walkthrough.mp4) · [Editable manuscript](paper/manuscript.typ) · [Daily research review](#recurring-research-review)
 
-[![Two simulated drawer trials, with measured tool travel and a 60 mm success threshold](videos/briefing-preview.jpg)](videos/research-briefing.mp4)
+[![Measured teacher and student configurations in the drawer study](videos/briefing-preview.jpg)](videos/15-paper-walkthrough.mp4)
 
-**[Read the six-page working paper](paper/embodied-self-calibration.pdf)** · [Editable source](paper/manuscript.typ)
-
-**Current status.** Thirteen milestone films are published. A numeric threshold learned on the two-link arm matched Qwen on 48 held-out three-link reaching tasks while spending 54 fewer probe pulses. The integrated drawer test passed 15/24 starts with Qwen3-8B and 24/24 with the fixed rule. A matched Qwen3-32B comparison is in progress.
+**Current status.** Across eight hidden drawer conditions, 32B and the fixed rule both taught students that passed all three fresh starts in every condition. The rule used six teacher demonstrations and four motor probes; 32B used twelve demonstrations and seven probes. The 8B supervisor passed five of eight episodes. On the held-out reaching grid, a threshold fitted on a two-link arm matched 8B's 39/48 successes on a three-link arm with 54 fewer probes. All online student tests were in simulation. [Earlier 81-second briefing on milestones 1–8](videos/research-briefing.mp4)
 
 | Milestone | Film | Finding | Recorded trials |
 | --- | --- | --- | --- |
@@ -23,6 +21,8 @@
 | 11 · Integrated teaching test | [When does the student get the right lesson?](videos/11-teaching-decisions.mp4) | With unseen gate heights and a rotary teacher, Qwen passed 5/8 teaching episodes (15/24 starts). It never requested a demonstration on a normally mapped keyed drawer. The fixed rule passed 8/8 episodes (24/24 starts). | [Qwen3-8B](results/integrated-qwen-observed.json) · [Rule](results/integrated-rule.json) |
 | 12 · Real teacher data | [Three physical DROID drawer demonstrations](videos/12-real-teacher.mp4) | A gripper-state trigger fired in one of the first three selected drawer episodes. In the other two, the recorded gripper state stayed constant while the drawer visibly opened. Qwen will need an object-motion observation to query these cases reliably. | [Selection and measured traces](results/droid-drawer-sample.json) · [Footage attribution and scope](experiments/droid/README.md) |
 | 13 · Noisy teacher observations | [How accurately must the student see the teacher?](videos/13-observation-errors.mp4) | A three-frame median before peak detection gained 21 and lost 6 of 108 starts at 4 mm frame noise. With noiseless observations and −6 mm bias it lost all nine starts. | [Paired observations and executed starts](results/teacher-observation-errors.json) |
+| 14 · Paired checkpoint comparison | [Does the larger model choose a better lesson?](videos/14-model-size.mp4) | 32B passed 8/8 episodes with 32 model calls and 12 demos. At the normally mapped 34 mm gate it asked four times and never practiced the resulting skill before the budget expired. The frozen skill still passed. | [All 32B prompts, decisions and measured runs](results/integrated-qwen32.json) · [Matched aggregate](paper/model-results.json) |
+| 15 · Six-page research paper | [74-second walkthrough with narration and captions](videos/15-paper-walkthrough.mp4) | The manuscript reports matched/shuffled teacher controls, the two model sizes, fixed-rule costs, local motor maps, a DROID audit, and sensitivity to measurement error. | [Six-page PDF](paper/embodied-self-calibration.pdf) · [Rebuild instructions](paper/README.md) |
 
 **Reading the films.** The early drawer films replay measured simulator poses with RTX lighting. The later engineering views show hinge centres, trajectories, or a cross-section through the catch. Qwen sees measurements. Cause labels, geometry, and aggregate test scores are for the viewer. All online student evaluations are simulated. Milestone 12 audits previously recorded physical teacher demonstrations. The second engine is native ODE, independent of Isaac PhysX. Webots and real hardware remain unevaluated.
 
@@ -80,12 +80,17 @@ Test the frozen scored-report Qwen supervisor and fixed rule on new passage heig
 
 Repeat the eight integrated teaching cases with Qwen3-32B Q4_K_M. Freeze the prompt, observation adapter, student, fixtures, teacher, action schema, decision budget, quantization family and seed. Keep llama.cpp revision, CPU thread count and disabled reasoning mode aligned with the 8B run. Compare episode-level choices, independent success, teacher requests, simulation time, model calls and measured decision latency. The same cases support a matched model comparison; they do not establish generalization to another task family.
 
-## Manuscript review in progress
+## Manuscript and model review
 
-Write a six-page empirical research report with the experimental unit, source of each observation, reference methods, and denominators explicit. Regenerate figures from saved trials. Check the larger model against the same eight episodes before reporting its results. Verify page count, render all pages, reconcile paper tables against JSON, and add the paper and its milestone video here. Real DROID clips serve as a measurement audit; real student-robot performance and locomotion remain open.
+The manuscript spans six US-letter pages including references. Each figure can be rebuilt from recorded trajectories or attributed camera frames. Tables 2–3 derive from eight matched teaching histories per supervisor. A separate replay audit checks the saved skills, the demonstration cutoff, all 24 independent starts, and model-call counts. The final 32B log was completed before generating the release tables. All six pages were rendered and visually inspected. A second PDF parser reported no syntax errors, and the 74-second walkthrough decoded with six chapters and English subtitles. Both CPU runs used the same pinned llama.cpp build with twelve threads. One quantization and decoding configuration per model was evaluated.
 
+| Supervisor | Episodes passed | Independent starts | Model calls | Median CPU seconds/call | Teacher requests | Motor probes | Student / teacher simulated seconds |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Fixed rule | 8/8 | 24/24 | 0 | — | 6 | 4 | 16.8 / 7.2 |
+| Qwen3-8B | 5/8 | 15/24 | 28 | 5.3 | 4 | 7 | 16.2 / 4.8 |
+| Qwen3-32B | 8/8 | 24/24 | 32 | 30.4 | 12 | 7 | 16.2 / 14.4 |
 
-**Manuscript checkpoint.** The six-page draft now compiles and is linked above. Figures 1–3 were regenerated from the keyed trials, full reaching sweep, and attributed DROID film. Page 4 separates episode counts from repeated execution starts. The original 8B runs and rule totals have been audited. The paired 32B run is executing on the Spark, and its incomplete observations are excluded from the draft. The final review will regenerate Tables 2–3, inspect rendered pages, validate the remote PDF, and publish a paper walkthrough.
+**Next decisions.** Compare a learning-progress selector with Qwen under the same budget on fresh task families. Change whether an earlier teacher segment can be reused for free and count repeated queries explicitly. Use the preregistered observation-error series below before moving to real camera estimates. The next locomotion trial will compare direct policy transfer, student-only adaptation, and a callable cross-body teacher, then score the unassisted student. [Locomotion protocol](RESEARCH_PLAN.md#next-locomotion-experiment)
 
 ## Next experiment registered before execution · observation error
 

@@ -45,7 +45,7 @@ def chapters(models: dict[str, Any]) -> list[tuple[str, str, int, str, str]]:
             "14-model-size.mp4",
             18,
             f"All-start passes:  8B  {small['episodes']}/8     32B  {large['episodes']}/8     Fixed rule  {models['rule']['episodes']}/8",
-            f"Matching demonstrations solved all nine starts in the content test. In the separate teaching test, eight billion parameters solved {small['episodes']} of eight episodes, thirty two billion solved {large['episodes']}, and the fixed telemetry rule solved all eight.",
+            f"The smaller model solved {small['episodes']} of eight teaching episodes. The larger model solved {large['episodes']}, as did the fixed rule. The larger model requested {large['queries']} teacher demonstrations. The rule requested {models['rule']['queries']}.",
         ),
         (
             "When is another motor experiment worth it?",
