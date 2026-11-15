@@ -76,7 +76,7 @@ def panels(image, d, data, stage, count, fraction, cache):
         if waiting:
             j = len(trace) - 1
         f = trace[j]
-        text(d, (left, 119), NAMES[name], 29, bold=True)
+        text(d, (left, 119), NAMES.get(name, name), 29, bold=True)
         title = "Teaching complete" if waiting else ACTIONS[action]
         if idx == 0 and not final:
             title = "First pull"
@@ -132,10 +132,21 @@ def main():
     parser.add_argument("output", type=Path)
     parser.add_argument("--cache", type=Path, required=True)
     parser.add_argument("--title", required=True)
+    parser.add_argument("--compare", type=Path)
+    parser.add_argument("--case", choices=NAMES, default="both_faults")
     parser.add_argument("--encoder", default="libx264")
     args = parser.parse_args()
     run = json.loads(args.record.read_text())
     data = [(k, c, scenes(k, c)) for k, c in run["conditions"].items()]
+    if args.compare:
+        other = json.loads(args.compare.read_text())
+        data = []
+        for label, record in [
+            ("Call Qwen every time", run),
+            ("Call Qwen after failure", other),
+        ]:
+            c = record["conditions"][args.case]
+            data.append((label, c, scenes(args.case, c)))
     count = max(len(v) for _, _, v in data)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
