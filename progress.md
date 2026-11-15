@@ -1,6 +1,10 @@
 # Research progress
 
-**November 14, 2026 · DGX Spark.** The first study has a live text-only Qwen supervisor, two physics implementations, a fixed-rule comparison, and teacher-disconnected tests. Start with film 1 to see the task, then film 3 to see where the learned supervisor gets stuck.
+**November 14, 2026 · DGX Spark.** [Watch the 81-second narrated briefing](videos/research-briefing.mp4) for the drawer and reaching results through milestone 8. Each film below follows a measured trial or evaluation grid.
+
+[![Two simulated drawer trials, with measured tool travel and a 60 mm success threshold](videos/briefing-preview.jpg)](videos/research-briefing.mp4)
+
+**Current status.** Eight milestone films are published. A 48-trial held-out experiment is running to compare Qwen with a residual threshold for deciding when to recalibrate. Its decision protocol is recorded below.
 
 | Milestone | Film | Finding | Recorded trials |
 | --- | --- | --- | --- |
@@ -53,3 +57,5 @@ The two-link arm improved from 61/104 to 81/104. Of all 208 targets, 173 interse
 ## Next experiment: when to recalibrate
 
 Use the first commanded movement as a diagnostic. Compare four choices on a new three-link grid: always keep the map, always reset and reprobe, switch when prediction residual exceeds a threshold selected on the two-link arm, or ask Qwen. Select the threshold on two-link data by maximizing success minus 0.05 per extra probe. The held-out grid has six new posture shifts (−72°, −36°, −12°, +12°, +36°, +72°) and eight targets offset 22.5° from the previous directions. Each Qwen call receives only goal displacement, measured and predicted first-step motion, residual, remaining error, and reprobe cost. Report successes and probes separately. Reprobing requires a reset to the original start; count this reset explicitly.
+
+The overview uses locally synthesized narration with the [Piper LJSpeech voice](https://huggingface.co/rhasspy/piper-voices/blob/1162a9173d0ce503555aed757976b7a9912eae4c/en/en_US/ljspeech/medium/MODEL_CARD). [Narration and edit script](experiments/media/briefing.py)
