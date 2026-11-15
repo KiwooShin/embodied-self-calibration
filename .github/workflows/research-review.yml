@@ -32,7 +32,12 @@ jobs:
           /usr/bin/python3 experiments/review.py --advance >> "$GITHUB_STEP_SUMMARY"
       - name: Publish the verified replication and progress checkpoint
         run: |
-          git add progress.md results/replications/
+          if ! git diff --quiet -- progress.md; then
+            /usr/bin/python3 experiments/drawer/observation_film.py results/replications "$RUNNER_TEMP/replication.mp4"
+            ffmpeg -v error -i "$RUNNER_TEMP/replication.mp4" -f null -
+            mv "$RUNNER_TEMP/replication.mp4" videos/16-daily-replications.mp4
+          fi
+          git add progress.md results/replications/ videos/16-daily-replications.mp4
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

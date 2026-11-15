@@ -14,12 +14,39 @@ BLUE = "#9cc9ea"
 METHODS = ("peak", "median3_peak")
 
 
+def load_record(path: Path) -> dict[str, Any]:
+    """Read a pilot record or aggregate independent daily replications.
+
+    Args:
+        path: Pilot JSON file or directory of single-seed replication records.
+    Returns:
+        Paired totals, example cases, and every included seed.
+    Raises:
+        ValueError: If the replication directory has no results or duplicate seeds.
+    """
+    if path.is_file():
+        return json.loads(path.read_text())
+    records = [json.loads(p.read_text()) for p in sorted(path.glob("seed-*.json"))]
+    seeds = [r["seeds"][0] for r in records]
+    if not seeds or len(set(seeds)) != len(seeds):
+        raise ValueError(f"Expected distinct daily replications, got {seeds}")
+    counts = {}
+    for sigma in ("0", "2", "4"):
+        batch = records[:1] if sigma == "0" else records
+        counts[sigma] = {
+            k: sum(r["paired_summary"][sigma][k] for r in batch)
+            for k in records[0]["paired_summary"][sigma]
+        }
+    return {"seeds": seeds, "cases": records[-1]["cases"], "paired_summary": counts}
+
+
 def traces(d: ImageDraw.ImageDraw, c: dict[str, Any], tick: int) -> None:
     """Draw one teacher observation series and the resulting student scores."""
     text(
         d,
         (50, 148),
-        f"30 mm gate    /    alignment {c['bias_mm']:+} mm    /    frame noise {c['sigma_mm']} mm",
+        f"30 mm gate    /    alignment {c['bias_mm']:+} mm    /    frame noise {c['sigma_mm']} mm"
+        + (f"    /    seed {c['seed']}" if c["seed"] is not None else ""),
         25,
         GOLD,
     )
@@ -127,7 +154,7 @@ def matrix(d: ImageDraw.ImageDraw, result: dict[str, Any]) -> None:
     text(
         d,
         (64, 655),
-        "At 4 mm frame noise, filtering gained 21 starts and lost 6.",
+        f"At 4 mm frame noise, filtering gained {result['paired_summary']['4']['gain']} starts and lost {result['paired_summary']['4']['loss']}.",
         28,
         GREEN,
         True,
@@ -135,14 +162,14 @@ def matrix(d: ImageDraw.ImageDraw, result: dict[str, Any]) -> None:
     text(
         d,
         (64, 718),
-        "At zero frame noise and −6 mm bias, filtering lost all 9 starts.",
+        f"With frame noise removed, the peak passed {result['paired_summary']['0']['peak']}/27 and the filtered peak passed {result['paired_summary']['0']['median3_peak']}/27.",
         24,
         INK,
     )
     text(
         d,
         (64, 785),
-        "3 passages   ·   3 offsets   ·   3 starts   ·   4 paired noise seeds   ·   noiseless settings counted once",
+        f"3 passages   ·   3 offsets   ·   3 starts   ·   paired noise seeds: {len(result['seeds'])}   ·   noiseless settings counted once",
         20,
         DIM,
     )
@@ -155,14 +182,15 @@ def main() -> None:
     p.add_argument("output", type=Path)
     p.add_argument("--encoder", default="libx264")
     args = p.parse_args()
-    result = json.loads(args.record.read_text())
+    result = load_record(args.record)
+    example_seed = result["seeds"][-1] if args.record.is_dir() else result["seeds"][0]
     cases = [
         next(
             c
             for c in result["cases"]
             if c["gate_mm"] == 30 and c["bias_mm"] == b and c["sigma_mm"] == s and c["seed"] == seed
         )
-        for b, s, seed in [(0, 4, 0), (-6, 0, None)]
+        for b, s, seed in [(0, 4, example_seed), (-6, 0, None)]
     ]
     cmd = [
         "ffmpeg",
@@ -204,7 +232,11 @@ def main() -> None:
             text(
                 d,
                 (50, 76),
-                "How accurately must the student see the teacher?",
+                (
+                    "Does the result repeat with new observations?"
+                    if args.record.is_dir()
+                    else "How accurately must the student see the teacher?"
+                ),
                 37,
                 INK,
                 True,
