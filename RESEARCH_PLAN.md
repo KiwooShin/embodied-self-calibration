@@ -1,0 +1,70 @@
+# Teaching an unfamiliar robot through self-calibration and cross-embodiment demonstrations
+
+**Research question.** Can a text-based teaching agent choose when an unfamiliar robot should investigate its own controls, practice a skill, or request help from another robot, so that the student later performs the skill independently with less physical practice and teacher time?
+
+Consider two students trying to open the same drawer. One commands a wrist rotation and observes motion in the opposite direction, even in free space. The other reaches the handle accurately but pulls against a latch. Another demonstration costs time in both cases. A short motor probe could resolve the first failure. Watching the teacher lift the latch could resolve the second, even if its arm has a different number of joints. A successful teaching system should distinguish these situations and recognize when neither intervention will help.
+
+## Related research and the proposed contribution
+
+| Research | What it establishes | Comparison or design consequence |
+| --- | --- | --- |
+| [Continuous self-modeling](https://www.science.org/doi/10.1126/science.1133687) and [task-agnostic self-modeling machines](https://www.science.org/doi/10.1126/scirobotics.aau9354) | Robots can infer useful body models from their own movements and use those models to plan or recover. | Compare against active identification and a simple local action-to-motion model. |
+| [Interactive policy learning through confidence-based autonomy](https://arxiv.org/abs/1401.3439) | A learner can request demonstrations from a human when its policy is uncertain and learn from corrections. | Include a confidence-triggered query baseline. Distinguish uncertainty about the student's actuators from uncertainty about the task strategy. |
+| [Rapid Motor Adaptation](https://ashish-kmr.github.io/rma-legged-robots/) | Recent sensorimotor history can support online adaptation during locomotion. | Measure whether dedicated probes save enough subsequent practice to pay for themselves. |
+| [Animal-motion imitation](https://xbpeng.github.io/projects/Robotic_Imitation/) and [XIRL](https://x-irl.github.io/) | Motion references can guide a different body, and demonstrations across embodiments can supply a representation of task progress. | Compare a whole trajectory, a requested segment, and the goal alone. Restrict observations to signals available to the student. |
+| [Learning to Learn Faster from Human Feedback](https://robot-teaching.github.io/) | A language model can use interaction history to make robot teaching more efficient. | Compare event-triggered and periodic supervisor calls. Evaluate a persistent student after the supervisor is removed. |
+| [RoboCat](https://deepmind.google/blog/robocat-a-self-improving-robotic-agent/), [Open X-Embodiment](https://robotics-transformer-x.github.io/), and [Octo](https://octo-models.github.io/) | Multi-robot experience can supply transferable manipulation priors. RoboCat also studies adaptation through demonstrations and practice. | Document each controller interface. A policy that can already command Cartesian motion has a different calibration problem from one controlling anonymous motor channels. |
+
+**Candidate contribution.** Test whether the teaching agent allocates a limited interaction budget better when it can choose between learning about the student's body and learning task strategy from another body. Judge that choice by the student's independent performance, including cases where the teacher's strategy must change. The studies above motivate this hypothesis. Establishing novelty requires a broader systematic review before submission.
+
+## What each participant knows
+
+- **Teaching agent.** Start with frozen [Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) running locally on the DGX Spark. It receives the task, recent trial summaries, state-estimator uncertainty, available probe and practice options, and remaining budgets. Record checkpoint revision, prompt, inference settings, and decision latency. Benchmark local inference before hardware deployment.
+- **Student robot.** Give it observable state, anonymous actuator channels, their command mode, bounded ranges, and a clock. Provide a calibrated camera frame for metric tasks. Initially hide joint names, channel signs, link geometry, gains, delays, and teacher actions. Evaluate bounded velocity and torque interfaces in separate conditions. A controller outside Qwen enforces hardware limits and logs the command actually applied.
+- **Teacher robot.** Its dimensions, joints, sensors, reaction time, and policy architecture can all differ. It can expose an observed demonstration without sharing its policy weights or motor commands. For text-only Qwen, a common perception pipeline converts demonstrations into timestamped object trajectories, contact changes, or body motion with confidence estimates. Score tracking on an annotated subset and report privileged simulator measurements as a separate condition.
+- **Student learning rule.** Start with a local Jacobian for free-space reaching and an ensemble forward model trained on student action/observation pairs for contact tasks. A short-horizon controller uses the learned model to track task-space subgoals. Store practiced subgoals and their completion conditions with the student. For locomotion, adapt a student policy conditioned on recent sensorimotor history using feasible body-motion or contact targets. Keep the learner and its update budget identical across supervisors within each task.
+
+## How Qwen decides what to teach
+
+Invoke Qwen when a bounded action ends, a prediction fails, or progress stalls. Each report includes the command issued and applied, predicted and observed motion in the same frame, object progress, contact events, uncertainty, and previous attempts. Ask Qwen for one available tool, its arguments, the evidence motivating the choice, and an observable outcome that would change the next decision. The executor validates arguments, records rejected calls, and runs one bounded action at a time.
+
+| Decision | Evidence to consider | Outcome used at the next decision |
+| --- | --- | --- |
+| Probe the student | Plausible body models disagree about a movement needed for the task. Select a bounded probe predicted to distinguish them. | Update the student model from actual displacement and timing. A clipped command or occluded observation calls for a different measurement. |
+| Practice | The learner can predict a feasible action, and trying it may advance the goal or resolve uncertainty. | Record object-level progress alongside prediction error. Accurate gripper motion with no drawer motion points toward a contact or strategy question. |
+| Request a teacher segment | An unresolved strategy question could be answered more cheaply by observation than repeated trials. Specify teacher, event, and observable of interest. | For a latch, request the interval from secure contact to first drawer translation. Extract the event order and have the student discover how to produce it. For gait, request foot-contact timing only when the bodies admit a useful correspondence. |
+| Assess readiness | The student has succeeded across practice variations, improvement has plateaued, or the budget is exhausted. | Run a separate validation set. Resume teaching only from validation evidence. The final held-out tests remain hidden. |
+
+The policy may ask before any failure if a demonstration is inexpensive and informative. It may return to probing after imitation if a new load changes the student's response. Compare these decisions with an explicit rule using calibrated motion-prediction error, observed task progress, and policy confidence. Tune thresholds only on development robots.
+
+## Data and models
+
+| Resource | Use in this study |
+| --- | --- |
+| [DROID](https://droid-dataset.github.io/) and [BridgeData V2](https://bridgedata-v2.github.io/) | Select real manipulation demonstrations with usable camera views and observable object events. Annotate queryable intervals and record annotation coverage. An offline teacher returns matching recorded segments or reports that the requested event is unavailable. |
+| [Open X-Embodiment datasets](https://github.com/google-deepmind/open_x_embodiment) and [Octo checkpoints](https://octo-models.github.io/) | Screen for overlapping behavior families across platforms. Octo is a candidate manipulation-policy comparison where action semantics match. Audit component-dataset overlap, robot identity, and checkpoint training data before claiming an unseen embodiment. |
+| [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie) and [ManiSkill](https://maniskill.ai/) | Use robot models and interactive tasks to collect outcomes of probes chosen online. Validate action modes, contact sensing, and task compatibility for each model. Save evaluator-only parameters separately. |
+| [MyoSuite](https://github.com/MyoHub/myosuite) | Optional extension from motor-driven mechanisms to simulated muscle actuation. Start with reaching to isolate the change in actuation. |
+
+Release synchronized probe logs with requested and applied action, units, duration, before/after measurements, controller interventions, resets, teaching decisions, teacher seconds, and student checkpoint IDs. Preserve unsuccessful trials. Split by source and target robot family before training. Use separate objects, fixtures, and starting states for validation and final assessment.
+
+## Experiment sequence
+
+1. **Metric reaching.** Train on source arms, tune on development arms, then hold out an entire morphology. Request a 10 cm displacement in a named frame from several reachable poses. Vary channel sign, gain, response delay, and payload individually. Compare random bounded excitation, sequential channel pulses with a locally updated Jacobian, and goal-conditioned probes. Report endpoint error and interaction time from the first probe.
+2. **Contact and strategy transfer.** Use puck pushing around an obstacle and drawer opening from a standardized grasp. Pair the same student with teachers of different reach and end effectors. Include trials where the same strategy works, where a shorter student must go around an obstacle, and where a fixture is physically incompatible. Pair infeasible cases with feasible controls to measure premature abandonment. Compare indistinguishable early failures caused by a hidden channel reversal and a latch.
+3. **Locomotion and recovery.** In simulation, transfer from a source gait policy to a held-out legged body with different dimensions, motor response, or joint count. Progress from standing to walking a specified distance and recovery from a standardized disturbance. Compare an observed nominal gait with a callable teacher that can show recovery. Measure falls, resets, unassisted distance, and time to repeatable success. Begin physical validation with supported trials if suitable hardware is available.
+4. **Physical transfer.** Repeat reaching and an object-contact task on two distinct arm designs, counterbalancing teacher/student roles where feasible. Log researcher setup time, interventions, calibration effort, and unsuccessful trials. Establish repeatability of the measurement and reset procedure before choosing hardware trial counts.
+
+## Controlled comparisons and independent assessment
+
+Cross **teacher access** (goal only or different-bodied teacher available) with **probe selection** (fixed sequence or adaptive). Add passive adaptation during practice, full demonstration first, confidence-triggered request, and request after first failure. Give all methods matched student learners, observations, feasible controls, target experience, teacher pools, and development budgets. Ablate task-goal access during calibration, whole versus targeted demonstrations, and periodic versus event-triggered Qwen calls. Use the same recorded evidence for offline decision comparisons and execute the chosen actions for closed-loop comparisons.
+
+**Primary outcome.** At fixed teaching budgets, freeze the student, clear teaching context, disable Qwen and the teacher, and test from hidden starting states. The student retains only its learned parameters and skill state. Measure independent success per robot family. Also estimate target interaction time to a prespecified repeatable-success threshold. For reaching, a proposed pilot criterion is endpoint error at most 1 cm in eight of ten new poses. Set task-specific distances, deadlines, and thresholds on development robots before the final study.
+
+Pair runs by robot, task, initial state, and random seed. Set sample sizes from pilot variation. Report per-family estimates and uncertainty intervals with independent training runs as replicates. Count threshold misses as budget-exhausted trials. Report teacher seconds, physical practice, reset time, calls, tokens, and latency separately. Compare success at equal budgets and report trade-offs when one method buys less practice with more teacher time. Test retention again after power-cycle or controller restart with the saved skill reloaded.
+
+**Falsifiable outcomes.** If telemetry rules match Qwen across held-out robots, the evidence favors the simpler supervisor. If clips improve coached behavior but gains disappear when the student acts alone, the teaching system has yet to demonstrate retained learning. If an unrelated teacher performs as well as a relevant teacher, investigate whether additional interaction time explains the benefit.
+
+## Demonstration videos
+
+Film matched baseline and adaptive runs from the first bounded probe to an independent attempt, with physical and teacher time visible. Show a predicted motion arrow before revealing the measured motion. For the drawer, show the requested teacher segment next to the student's different movement that releases the latch. End with a new initial state, the teacher disconnected, and the frozen student completing or failing the task. Include representative failures alongside successful runs.
