@@ -106,6 +106,14 @@ A daily repository workflow audits the teaching traces and manuscript tables, ch
 
 <!-- daily-review:start -->
 
-The first follow-up seed is 100.
+Completed **1 of 28** follow-up noise seeds.
+
+| Frame noise | Paired starts | Peak passed | Median then peak passed | Gained | Lost |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2 mm | 27 | 18 | 18 | 3 | 3 |
+| 4 mm | 27 | 12 | 15 | 6 | 3 |
+
+[Latest raw paired replication](results/replications/seed-100.json).
+Next seed: **101**.
 
 <!-- daily-review:end -->
