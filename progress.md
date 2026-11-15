@@ -94,3 +94,13 @@ The keyed demonstration study assumes an accurate handle-height measurement. Rep
 Compare the current peak estimator with a prespecified alternative: apply a causal three-sample median to observed heights, discard the first two frames without a full window, and then take the peak. Use the same noisy frames and starts for both methods. First run seeds 0–3 and publish all cells and costs. Report gains and regressions separately, counting clean repetitions once. A recurring repository review can replay an additional paired seed, verify the six-page PDF and audit the model tables against frozen-student traces. A physical calibration and a different-body locomotion task remain separate next tests.
 
 **Observation review.** The four-seed pilot produced 243 paired starts per estimator, counting each noiseless setting once. At 0, 2 and 4 mm frame noise, the peak passed 18/27, 63/108 and 51/108, respectively. Median-then-peak passed 9/27, 66/108 and 66/108. Both passed 9/9 with zero bias and zero frame noise. These trials test height uncertainty after access to the correct source segment. The next 28 follow-up seeds are 100 through 127; keep the protocol fixed and publish paired wins and losses at 2 and 4 mm noise.
+
+## Recurring research review
+
+A daily repository workflow audits the teaching traces and manuscript tables, checks the PDF page count and milestone films, and runs the next registered observation-noise seed. Each seed uses exactly the same teacher and perturbations for the two estimators. A completed replication is saved as raw JSON, and the totals below are updated in the same commit. After seed 127, the daily audit continues without collecting more data. The scheduled time is 17:17 UTC. [Review runs](https://github.com/KiwooShin/embodied-self-calibration/actions/workflows/research-review.yml)
+
+<!-- daily-review:start -->
+
+The first follow-up seed is 100.
+
+<!-- daily-review:end -->

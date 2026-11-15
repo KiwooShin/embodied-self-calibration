@@ -1,14 +1,16 @@
 """Regenerate the paper's figures from committed experiment records and footage."""
 
 import json
-from pathlib import Path
 import subprocess
 from io import BytesIO
+from pathlib import Path
+from typing import Any
 
 import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.axes import Axes
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle
-import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,23 +29,28 @@ plt.rcParams.update(
         "axes.labelcolor": NAVY,
         "axes.titlecolor": NAVY,
         "svg.fonttype": "path",
+        "svg.hashsalt": "embodied-self-calibration",
     }
 )
 
 
-def load(name):
+def load(name: str) -> dict[str, Any]:
+    """Load a recorded experiment from the repository results directory.
+
+    Args:
+        name: JSON filename.
+    Returns:
+        The recorded run as a dictionary.
+    """
     return json.loads((ROOT / "results" / name).read_text())
 
 
-def transfer():
+def transfer() -> None:
+    """Plot measured teacher and student kinematics in the keyed transfer test."""
     r = load("keyed-teacher.json")
     g = 30
     t = [
-        next(
-            x
-            for x in r["trials"]
-            if x["method"] == m and x["gate_mm"] == g and x["gap_mm"] == 8
-        )
+        next(x for x in r["trials"] if x["method"] == m and x["gate_mm"] == g and x["gap_mm"] == 8)
         for m in ("matched", "shuffled")
     ]
     traces = [r["teachers"][str(g)]["trace"], t[0]["trace"], t[1]["trace"]]
@@ -61,10 +68,8 @@ def transfer():
         tx = f["tool_x_mm"] - (8 if j else 0)
         tz = 45 + f["tool_z_mm"]
 
-        def rect(x, z, w, height, color):
-            ax.add_patch(
-                Rectangle((x, z), w, height, facecolor=color, edgecolor="white", lw=0.5)
-            )
+        def rect(x: float, z: float, w: float, height: float, color: str, axis: Axes = ax) -> None:
+            axis.add_patch(Rectangle((x, z), w, height, facecolor=color, edgecolor="white", lw=0.5))
 
         rect(46, -8, 18, 13 + g, RED)
         rect(46, 33 + g, 18, 97 - g, RED)
@@ -97,11 +102,17 @@ def transfer():
         ax.set_xlabel(f"Drawer travel   {dx:.1f} mm", fontsize=9)
         for s in ax.spines.values():
             s.set_visible(False)
-    fig.savefig(OUT / "cross-body.svg", bbox_inches="tight", pad_inches=0.025)
+    fig.savefig(
+        OUT / "cross-body.svg",
+        bbox_inches="tight",
+        pad_inches=0.025,
+        metadata={"Date": None},
+    )
     plt.close(fig)
 
 
-def workspace():
+def workspace() -> None:
+    """Plot every retained and refitted reaching outcome by task and posture."""
     rows = load("workspace-sweep.json")
     fig, axes = plt.subplots(2, 2, figsize=(7.1, 2.85), layout="constrained")
     colors = ListedColormap(["#d8dadd", "#bd624f", GREEN])
@@ -130,20 +141,21 @@ def workspace():
                 loc="left",
                 fontweight="bold",
             )
-            ax.set_xticks(
-                [0, 3, 6, 9, 12], ["−90°", "−45°", "0°", "45°", "90°"] if i else []
-            )
+            ax.set_xticks([0, 3, 6, 9, 12], ["−90°", "−45°", "0°", "45°", "90°"] if i else [])
             ax.set_yticks([0, 4, 7], ["0°", "180°", "315°"] if not j else [])
             ax.tick_params(length=0, labelsize=7)
             if not j:
                 ax.set_ylabel(("Two joints", "Three joints")[i], fontsize=8)
             if i:
                 ax.set_xlabel("Starting posture shift", fontsize=8)
-    fig.savefig(OUT / "workspace.svg", bbox_inches="tight", pad_inches=0.03)
+    fig.savefig(
+        OUT / "workspace.svg", bbox_inches="tight", pad_inches=0.03, metadata={"Date": None}
+    )
     plt.close(fig)
 
 
-def droid():
+def droid() -> None:
+    """Extract credited exterior-camera frames from the published DROID replay."""
     # The public milestone replay contains attributed frames at fixed placements.
     # Take the exterior view near the end of each reviewed interval.
     r = load("droid-drawer-sample.json")
@@ -178,12 +190,17 @@ def droid():
         ax.set_axis_off()
         event = ep["gripper_trigger_frames"]
         ax.set_title(
-            f"Episode {ep['id']}  ·  " + ("closure" if event else "no trigger"),
+            f"Episode {ep['id']}  ·  " + ("trigger" if event else "no trigger"),
             fontsize=8,
             loc="left",
         )
         offset += (hi - lo + 1) / r["fps"] + 2
-    fig.savefig(OUT / "droid.jpg", dpi=200, bbox_inches="tight", pad_inches=0.025)
+    fig.savefig(
+        OUT / "droid.jpg",
+        dpi=200,
+        bbox_inches="tight",
+        pad_inches=0.025,
+    )
     plt.close(fig)
 
 
@@ -192,3 +209,5 @@ if __name__ == "__main__":
     transfer()
     workspace()
     droid()
+    for svg in OUT.glob("*.svg"):
+        svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")

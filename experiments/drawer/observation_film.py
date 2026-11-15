@@ -2,9 +2,10 @@
 
 import argparse
 import json
-from pathlib import Path
 import subprocess
+from pathlib import Path
 from statistics import median
+from typing import Any
 
 from PIL import Image, ImageDraw
 from replay import BG, DIM, GOLD, GREEN, INK, LINE, RED, text
@@ -13,7 +14,8 @@ BLUE = "#9cc9ea"
 METHODS = ("peak", "median3_peak")
 
 
-def traces(d, c, tick):
+def traces(d: ImageDraw.ImageDraw, c: dict[str, Any], tick: int) -> None:
+    """Draw one teacher observation series and the resulting student scores."""
     text(
         d,
         (50, 148),
@@ -25,7 +27,7 @@ def traces(d, c, tick):
     med = [median(obs[i - 2 : i + 1]) for i in range(2, len(obs))]
     lo, hi = -12, 56
 
-    def point(i, val):
+    def point(i: int, val: float) -> tuple[float, float]:
         return (90 + 760 * i / (len(obs) - 1), 627 - 365 * (val - lo) / (hi - lo))
 
     for h in (0, 20, 40):
@@ -82,7 +84,8 @@ def traces(d, c, tick):
     )
 
 
-def matrix(d, result):
+def matrix(d: ImageDraw.ImageDraw, result: dict[str, Any]) -> None:
+    """Draw the full paired sensitivity summary from the experiment log."""
     text(
         d,
         (50, 153),
@@ -145,7 +148,8 @@ def matrix(d, result):
     )
 
 
-def main():
+def main() -> None:
+    """Render the selected trials to an H.264 milestone film."""
     p = argparse.ArgumentParser()
     p.add_argument("record", type=Path)
     p.add_argument("output", type=Path)
@@ -156,10 +160,7 @@ def main():
         next(
             c
             for c in result["cases"]
-            if c["gate_mm"] == 30
-            and c["bias_mm"] == b
-            and c["sigma_mm"] == s
-            and c["seed"] == seed
+            if c["gate_mm"] == 30 and c["bias_mm"] == b and c["sigma_mm"] == s and c["seed"] == seed
         )
         for b, s, seed in [(0, 4, 0), (-6, 0, None)]
     ]

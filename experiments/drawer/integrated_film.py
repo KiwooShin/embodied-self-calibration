@@ -2,14 +2,20 @@
 
 import argparse
 import json
-from pathlib import Path
 import subprocess
-from PIL import Image, ImageDraw
+from pathlib import Path
+from statistics import median
+from typing import Any
+
 from keyed_film import mechanism
-from replay import BG, DIM, GOLD, GREEN, INK, RED, text, ACTIONS
+from PIL import Image, ImageDraw
+from replay import ACTIONS, BG, DIM, GOLD, GREEN, INK, RED, text
 
 
-def example(d, records, phase, tick):
+def example(
+    d: ImageDraw.ImageDraw, records: list[tuple[str, dict[str, Any]]], phase: int, tick: int
+) -> None:
+    """Draw two matched 34 mm episodes at the selected playback phase."""
     key = "34-normal" if phase == 0 else "34-reverse"
     title = "Normal horizontal motor" if phase == 0 else "Reversed horizontal motor"
     text(d, (40, 145), f"34 mm gate    /    {title}", 25, GOLD)
@@ -34,9 +40,7 @@ def example(d, records, phase, tick):
             caption = "First attempted pull" if part == 0 else ACTIONS[action]
         text(d, (left + 18, 289), caption, 21, GREEN)
         f = trace[min(len(trace) - 1, int(len(trace) * frac))]
-        mechanism(
-            d, left + 65, f, 34, action == "ask_teacher", gap, free=action == "probe"
-        )
+        mechanism(d, left + 65, f, 34, action == "ask_teacher", gap, free=action == "probe")
         text(d, (left + 18, 588), f"Drawer travel   {f['drawer_x_mm']:.1f} mm", 25, INK)
         if part == 2:
             passed = sum(t["success"] for t in c["tests"])
@@ -53,7 +57,8 @@ def example(d, records, phase, tick):
     )
 
 
-def score(d, records):
+def score(d: ImageDraw.ImageDraw, records: list[tuple[str, dict[str, Any]]]) -> None:
+    """Draw execution scores and measured decision costs for both supervisors."""
     text(
         d,
         (40, 148),
@@ -85,19 +90,29 @@ def score(d, records):
                     (x, y, x + 147, y + 43), radius=7, fill=GREEN if n == 3 else RED
                 )
                 text(d, (x + 32, y + 10), f"{n} / 3", 22, BG, True)
-        text(d, (left, 741), f"{total} of 24 independent starts passed", 22, INK, True)
+        text(d, (left, 730), f"{total} of 24 independent starts passed", 22, INK, True)
+        decisions = [a for c in record["conditions"].values() for a in c["decisions"]]
+        times = [a["latency_s"] for a in decisions if "latency_s" in a]
+        demos = sum(a["action"] == "ask_teacher" for a in decisions)
+        cost = f"{len(times)} model calls  ·  {demos} teacher requests"
+        if times:
+            cost += f"  ·  median {median(times):.1f} s/call"
+        text(d, (left, 779), cost, 19, DIM)
 
 
-def main():
+def main() -> None:
+    """Render the selected trials to an H.264 milestone film."""
     p = argparse.ArgumentParser()
     p.add_argument("qwen", type=Path)
     p.add_argument("rule", type=Path)
     p.add_argument("output", type=Path)
+    p.add_argument("--right-label", default="Fixed telemetry rule")
+    p.add_argument("--title", default="When does the student get the right lesson?")
     p.add_argument("--encoder", default="libx264")
     args = p.parse_args()
     records = [
         ("Qwen3-8B", json.loads(args.qwen.read_text())),
-        ("Fixed telemetry rule", json.loads(args.rule.read_text())),
+        (args.right_label, json.loads(args.rule.read_text())),
     ]
     cmd = [
         "ffmpeg",
@@ -139,7 +154,7 @@ def main():
             text(
                 d,
                 (40, 65),
-                "When does the student get the right lesson?",
+                args.title,
                 38,
                 INK,
                 True,

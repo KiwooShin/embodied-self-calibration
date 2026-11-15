@@ -54,3 +54,22 @@ The edit step requires Pillow, DejaVu Sans and FFmpeg with an H.264 encoder. The
 Run keyed.py with a new output JSON using PyODE. Render the sectional comparison with keyed_film.py, passing the JSON, the MP4 path and optionally --encoder libopenh264. The side-view projection shows the catch and passage in a plane beside the pin. The teacher can use its own fixture parameters to demonstrate the skill. A student receiving an example sees only measured object motion. Lift targets and source-fixture assignments are recorded so the shuffled-segment control can be checked.
 
 For the integrated evaluation, run integrated.py with --mode rule or --mode qwen-observed and a new output JSON. For a larger checkpoint, set both --model and --endpoint to the identity and address of the corresponding server. Independent tests always use the same actor parameters saved at the end of teaching. The supervisor does not receive the fixture identifier.
+
+## Matched model-size comparison
+
+Use the official [Qwen3-32B Q4_K_M revision](https://huggingface.co/Qwen/Qwen3-32B-GGUF/tree/938a7432affaec9157f883a87164e2646ae17555). The evaluated file has SHA-256 efd971561896866f0e910cce52761ca77b1b138090c7f15fe284676d57d1f689. Serve it with the 8B llama.cpp revision and flags shown above, changing the file, the alias to qwen3-32b, and the port to 18082. Quantization family, CPU threads, prompt, student, teacher and independent starts are matched. Report wall time per call alongside accuracy. A single host and run per case give descriptive latency measurements.
+
+```bash
+/usr/bin/python3 experiments/drawer/integrated.py --mode qwen-observed \
+  --model qwen3-32b --endpoint http://127.0.0.1:18082/v1 runs/integrated-32b.json
+python experiments/drawer/verify.py runs/integrated-32b.json
+```
+
+## Teacher observation error
+
+The rotary teacher still completes its own task. Corrupt only its observed handle height for the student. Each per-frame standard-normal draw is shared across estimators, offsets and noise levels within a gate and seed. The score comes from a fresh ODE execution. The optional median uses the last three available frames. At zero frame noise, repeated seeds give identical observations and are counted once in the pilot.
+
+```bash
+/usr/bin/python3 experiments/drawer/observations.py --seeds 0 1 2 3 -- runs/observation-errors.json
+python experiments/drawer/observation_film.py runs/observation-errors.json runs/observation-errors.mp4
+```
