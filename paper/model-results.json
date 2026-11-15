@@ -1,0 +1,38 @@
+{
+  "rule": {
+    "passed": 24,
+    "episodes": 8,
+    "calls": 0,
+    "queries": 6,
+    "pulses": 4,
+    "latency": 0,
+    "splits": {
+      "open-normal": 3,
+      "open-reverse": 3,
+      "16-normal": 3,
+      "16-reverse": 3,
+      "34-normal": 3,
+      "34-reverse": 3,
+      "52-normal": 3,
+      "52-reverse": 3
+    }
+  },
+  "small": {
+    "passed": 15,
+    "episodes": 5,
+    "calls": 28,
+    "queries": 4,
+    "pulses": 7,
+    "latency": 5.3,
+    "splits": {
+      "open-normal": 3,
+      "open-reverse": 3,
+      "16-normal": 0,
+      "16-reverse": 3,
+      "34-normal": 0,
+      "34-reverse": 3,
+      "52-normal": 0,
+      "52-reverse": 3
+    }
+  }
+}

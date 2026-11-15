@@ -4,6 +4,8 @@
 
 [![Two simulated drawer trials, with measured tool travel and a 60 mm success threshold](videos/briefing-preview.jpg)](videos/research-briefing.mp4)
 
+**[Read the six-page working paper](paper/embodied-self-calibration.pdf)** · [Editable source](paper/manuscript.typ)
+
 **Current status.** Twelve milestone films are published. A numeric threshold learned on the two-link arm matched Qwen on 48 held-out three-link reaching tasks while spending 54 fewer probe pulses. The integrated drawer test passed 15/24 starts with Qwen3-8B and 24/24 with the fixed rule. A matched Qwen3-32B comparison is in progress.
 
 | Milestone | Film | Finding | Recorded trials |
@@ -76,3 +78,10 @@ Test the frozen scored-report Qwen supervisor and fixed rule on new passage heig
 ## Paired model-size comparison
 
 Repeat the eight integrated teaching cases with Qwen3-32B Q4_K_M. Freeze the prompt, observation adapter, student, fixtures, teacher, action schema, decision budget, quantization family and seed. Keep llama.cpp revision, CPU thread count and disabled reasoning mode aligned with the 8B run. Compare episode-level choices, independent success, teacher requests, simulation time, model calls and measured decision latency. The same cases support a matched model comparison; they do not establish generalization to another task family.
+
+## Manuscript review in progress
+
+Write a six-page empirical research report with the experimental unit, source of each observation, reference methods, and denominators explicit. Regenerate figures from saved trials. Check the larger model against the same eight episodes before reporting its results. Verify page count, render all pages, reconcile paper tables against JSON, and add the paper and its milestone video here. Real DROID clips serve as a measurement audit; real student-robot performance and locomotion remain open.
+
+
+**Manuscript checkpoint.** The six-page draft now compiles and is linked above. Figures 1–3 were regenerated from the keyed trials, full reaching sweep, and attributed DROID film. Page 4 separates episode counts from repeated execution starts. The original 8B runs and rule totals have been audited. The paired 32B run is executing on the Spark, and its incomplete observations are excluded from the draft. The final review will regenerate Tables 2–3, inspect rendered pages, validate the remote PDF, and publish a paper walkthrough.
