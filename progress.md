@@ -10,6 +10,7 @@
 | 4 · Combined and absent faults | [Two faults together, or none at all](videos/04-transfer.mp4) | Frozen Qwen and the rule each passed 6/6. Qwen used the same probe-then-demo sequence it used on the reversed-only trial. Success on both faults alone gives weak evidence that Qwen isolated the latch. | [Qwen](results/transfer-qwen-observed.json) · [Rule](results/transfer-rule.json) |
 | 5 · Independent physics engine | [Does the failure survive a new engine?](videos/05-cross-engine.mp4) | ODE reimplemented the drives, constraints and collision response. On the original pair, Qwen again passed 3/6, with all failures on the latch. The rule passed 6/6. | [ODE Qwen](results/ode-qwen-observed.json) · [ODE rule](results/ode-rule.json) |
 | 6 · Agent call timing | [One student, two ways to call Qwen](videos/06-call-schedule.mp4) | On the shifted fixtures, scheduling cut model calls from 13 to 7. Frozen-student success fell from 9/12 to 6/12. The scheduled agent used zero teacher demonstrations and missed the combined fault. | [Every decision, paired](results/shifted-qwen-observed-paired.json) · [combined/nominal](results/shifted-qwen-observed-transfer.json) · [scheduled, paired](results/shifted-qwen-scheduled-paired.json) · [combined/nominal](results/shifted-qwen-scheduled-transfer.json) |
+| 7 · Learn “10 cm left” | [Two-link and three-link arms](videos/07-ten-centimetres.mp4) | Both frozen motor maps passed 6/6 posture tests. Qwen used nine probes across the two bodies. Probing each channel once used five and reached the same final errors (3.0–8.4 mm). With zero calibration, all six errors remained 100 mm. | [Qwen](results/reach-qwen.json) · [All channels](results/reach-all_channels.json) · [Untrained](results/reach-untrained.json) |
 
 **What the films show.** The teal tool, gold handle and red stop are positioned from the simulation traces. Each decision follows the observed motion. The final shot uses a fresh fixture, the largest held-out gap, and the frozen student without Qwen or teacher access. These RTX replays illustrate two- and three-axis mechanisms with common Cartesian axes. No physical robots have been tested. The PyODE replication runs ODE directly and does not use the Webots application.
 
@@ -25,7 +26,7 @@ After running the two single-fault fixtures, freeze the observation adapter, pro
 
 On the independent ODE fixture, hold the Qwen weights, decision prompt, derived measurements, student update rule and five-decision budget fixed. Compare calling Qwen at every decision with a scheduler that automatically practices after a probe or demonstration and automatically freezes after observed success. Qwen still chooses the diagnostic intervention after a failed practice. Use a new student response gain of 0.92 and a 6 mm training gap. Run all four fault combinations, including the nominal control, for both supervisors and the fixed rule. Record the number of model calls, teacher requests, physical practice seconds and independent successes. This tests the proposed division of work between a numerical controller and the language model. A reduction in calls is only desirable if independent performance is preserved.
 
-## Next manipulation milestone
+## Reaching protocol
 
 Test the original 10 cm instruction in a planar workspace on a two-joint arm and a three-joint arm. Hide link geometry and scramble command-channel order and signs. A bounded single-channel pulse estimates one column of a local action-to-endpoint map. Compare fixed calibration, no calibration, and Qwen choosing which channel to investigate or when to test. The teacher option returns an endpoint trace from the other morphology. Freeze the fitted matrix and score previously unused starts with a 10 mm tolerance. This experiment addresses discovery of movement directions beyond the two-parameter drawer skill.
 
@@ -38,3 +39,10 @@ Test the original 10 cm instruction in a planar workspace on a two-joint arm and
 | Fixed telemetry rule | 12/12 | 0 | 2 | 7.2 sim s | 2.4 sim s |
 
 The scheduled variant can still assess prematurely after a failed practice. Its zero teacher cost came with an unsolved combined fault. The fixed rule remains the strongest method on these restricted fixtures. [Rule single-fault trials](results/shifted-rule-paired.json) · [Rule combined and nominal trials](results/shifted-rule-transfer.json)
+
+
+The reaching film shows measured hinge centres and tool paths. Each +0.07 rad pulse starts at the calibration posture. The student stores a two-dimensional endpoint response for that channel. Qwen repeated measurements already in memory until the decision budget expired. Some of its explanations quoted displacements before they had been measured. The student always fits the map using simulator observations. A torque-driven commissioning check caught an immobile velocity-drive setup before scored trials. [Reproduction notes](experiments/reach/README.md)
+
+## Workspace stress test protocol
+
+Freeze the one-posture controller and measure where it stops working. Sweep initial posture shifts from −90° through +90° in 15° steps and eight directions of a 100 mm target. Compare the frozen map with a diagnostic baseline that remeasures each channel at the current starting posture. Record endpoint error, success, geometric reach bounds and probe cost. This is a stress test of the chosen controller, separate from the six original teaching trials.
