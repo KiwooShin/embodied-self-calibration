@@ -1,0 +1,943 @@
+{
+  "mode": "qwen",
+  "prompt": "You teach a student Cartesian robot to pull a drawer at least 60 mm.\nChoose one action for the next trial. probe: run one free-space diagnostic of\nthe horizontal motor channel; the student estimates its sign from the response.\nask_teacher: request the handle trajectory before first drawer translation\nfrom a robot with a different mechanism. The student learns an object-space\nsubgoal. practice: try the student's current skill in the training setup.\nassess: finish teaching and freeze the student's current skill for new starts.\nAn attempt report gives positive commanded and measured distances in mm;\nnegative observations mean the tool moved the other way. The plain pull skill\nassumes positive horizontal polarity and zero lift. Use evidence to distinguish\na motor problem from a missing interaction sequence. Spend a teacher query\nonly when it helps. Prefer a successful practice before assessment. Return\nJSON with action and one short evidence sentence. /no_think",
+  "conditions": {
+    "channel_reversed": {
+      "decisions": [
+        {
+          "action": "assess",
+          "evidence": "The student's pull skill achieved a close match between commanded and measured distances, indicating successful execution.",
+          "latency_s": 8.676,
+          "usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 289,
+            "total_tokens": 325,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          }
+        }
+      ],
+      "history": [
+        {
+          "kind": "practice",
+          "pull_command_mm": 90,
+          "result": {
+            "tool_x_mm": -90.17,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          }
+        }
+      ],
+      "traces": [
+        [
+          {
+            "tick": 12,
+            "tool_x_mm": -7.24,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 24,
+            "tool_x_mm": -18.63,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 36,
+            "tool_x_mm": -28.04,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 48,
+            "tool_x_mm": -38.26,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 60,
+            "tool_x_mm": -48.18,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 72,
+            "tool_x_mm": -58.21,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 84,
+            "tool_x_mm": -68.2,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 96,
+            "tool_x_mm": -78.2,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 108,
+            "tool_x_mm": -88.2,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 120,
+            "tool_x_mm": -90.96,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 132,
+            "tool_x_mm": -89.57,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 144,
+            "tool_x_mm": -90.17,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          }
+        ]
+      ],
+      "frozen_skill": {
+        "polarity": 1,
+        "lift_mm": 0.0
+      },
+      "tests": [
+        {
+          "origin_m": 0.16,
+          "gap_m": 0.003,
+          "result": {
+            "tool_x_mm": -90.17,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": -0.0
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": -7.24,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": -18.63,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": -28.04,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": -38.26,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": -48.18,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": -58.21,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": -68.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": -78.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": -88.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": -90.96,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": -89.57,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": -90.17,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            }
+          ]
+        },
+        {
+          "origin_m": -0.09,
+          "gap_m": 0.008,
+          "result": {
+            "tool_x_mm": -90.17,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": -0.0
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": -7.24,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": -18.63,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": -28.04,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": -38.26,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": -48.18,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": -58.21,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": -68.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": -78.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": -88.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": -90.96,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": -89.57,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": -90.17,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            }
+          ]
+        },
+        {
+          "origin_m": 0.28,
+          "gap_m": 0.012,
+          "result": {
+            "tool_x_mm": -90.17,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": -7.24,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": -18.63,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": -28.04,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": -38.26,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": -48.18,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": -58.21,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": -68.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": -78.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": -88.2,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": -90.96,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": -89.57,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": -90.17,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    "latch_engaged": {
+      "decisions": [
+        {
+          "action": "probe",
+          "evidence": "The tool moved in the positive x-direction, suggesting the horizontal motor is functioning correctly.",
+          "latency_s": 3.309,
+          "usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 289,
+            "total_tokens": 322,
+            "prompt_tokens_details": {
+              "cached_tokens": 223
+            }
+          }
+        },
+        {
+          "action": "assess",
+          "evidence": "The student's pull skill consistently moves the tool in the positive x-direction with minimal error, indicating the interaction sequence is correctly learned.",
+          "latency_s": 4.411,
+          "usage": {
+            "completion_tokens": 43,
+            "prompt_tokens": 349,
+            "total_tokens": 392,
+            "prompt_tokens_details": {
+              "cached_tokens": 259
+            }
+          }
+        }
+      ],
+      "history": [
+        {
+          "kind": "practice",
+          "pull_command_mm": 90,
+          "result": {
+            "tool_x_mm": 5.99,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          }
+        },
+        {
+          "kind": "probe",
+          "pull_command_mm": 12,
+          "result": {
+            "tool_x_mm": 12.02,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          }
+        }
+      ],
+      "traces": [
+        [
+          {
+            "tick": 12,
+            "tool_x_mm": 5.11,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 3.11
+          },
+          {
+            "tick": 24,
+            "tool_x_mm": 6.04,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.01,
+            "drawer_x_mm": 4.03
+          },
+          {
+            "tick": 36,
+            "tool_x_mm": 6.04,
+            "tool_z_mm": 0.01,
+            "handle_z_mm": 0.01,
+            "drawer_x_mm": 4.04
+          },
+          {
+            "tick": 48,
+            "tool_x_mm": 5.99,
+            "tool_z_mm": 0.01,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 4.01
+          },
+          {
+            "tick": 60,
+            "tool_x_mm": 5.98,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 3.98
+          },
+          {
+            "tick": 72,
+            "tool_x_mm": 5.98,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.98
+          },
+          {
+            "tick": 84,
+            "tool_x_mm": 5.98,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          {
+            "tick": 96,
+            "tool_x_mm": 5.98,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          {
+            "tick": 108,
+            "tool_x_mm": 5.99,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          {
+            "tick": 120,
+            "tool_x_mm": 5.99,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          {
+            "tick": 132,
+            "tool_x_mm": 5.99,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          {
+            "tick": 144,
+            "tool_x_mm": 5.99,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          }
+        ],
+        [
+          {
+            "tick": 12,
+            "tool_x_mm": 0.97,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 24,
+            "tool_x_mm": 2.48,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 36,
+            "tool_x_mm": 3.74,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 48,
+            "tool_x_mm": 5.1,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 60,
+            "tool_x_mm": 6.42,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 72,
+            "tool_x_mm": 7.76,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 84,
+            "tool_x_mm": 9.09,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 96,
+            "tool_x_mm": 10.43,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 108,
+            "tool_x_mm": 11.76,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 120,
+            "tool_x_mm": 12.13,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 132,
+            "tool_x_mm": 11.94,
+            "tool_z_mm": 0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          },
+          {
+            "tick": 144,
+            "tool_x_mm": 12.02,
+            "tool_z_mm": -0.0,
+            "handle_z_mm": 0.0,
+            "drawer_x_mm": 0.0
+          }
+        ]
+      ],
+      "frozen_skill": {
+        "polarity": 1,
+        "lift_mm": 0.0
+      },
+      "tests": [
+        {
+          "origin_m": 0.16,
+          "gap_m": 0.003,
+          "result": {
+            "tool_x_mm": 8.99,
+            "tool_z_mm": -0.01,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": 6.18,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 1.18
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": 9.03,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.02
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": 9.05,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.04
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": 9.02,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.03
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": 8.98,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.99
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": 8.98,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.98
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": 8.98,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": 8.98,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": 8.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": 8.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": 8.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": 8.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            }
+          ]
+        },
+        {
+          "origin_m": -0.09,
+          "gap_m": 0.008,
+          "result": {
+            "tool_x_mm": 13.99,
+            "tool_z_mm": -0.01,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": 7.24,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": -0.0
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": 14.02,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.01
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": 14.04,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.01,
+              "drawer_x_mm": 4.03
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": 14.04,
+              "tool_z_mm": 0.01,
+              "handle_z_mm": 0.01,
+              "drawer_x_mm": 4.04
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": 13.98,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.0
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": 13.98,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 3.98
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": 13.98,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.98
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": 13.98,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": 13.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": 13.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": 13.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": 13.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            }
+          ]
+        },
+        {
+          "origin_m": 0.28,
+          "gap_m": 0.012,
+          "result": {
+            "tool_x_mm": 17.99,
+            "tool_z_mm": -0.01,
+            "handle_z_mm": -0.0,
+            "drawer_x_mm": 3.97
+          },
+          "success": false,
+          "trace": [
+            {
+              "tick": 12,
+              "tool_x_mm": 7.24,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 0.0
+            },
+            {
+              "tick": 24,
+              "tool_x_mm": 16.82,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 2.81
+            },
+            {
+              "tick": 36,
+              "tool_x_mm": 18.03,
+              "tool_z_mm": 0.0,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.02
+            },
+            {
+              "tick": 48,
+              "tool_x_mm": 18.05,
+              "tool_z_mm": 0.01,
+              "handle_z_mm": 0.01,
+              "drawer_x_mm": 4.04
+            },
+            {
+              "tick": 60,
+              "tool_x_mm": 18.01,
+              "tool_z_mm": 0.01,
+              "handle_z_mm": 0.0,
+              "drawer_x_mm": 4.03
+            },
+            {
+              "tick": 72,
+              "tool_x_mm": 17.98,
+              "tool_z_mm": -0.0,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.99
+            },
+            {
+              "tick": 84,
+              "tool_x_mm": 17.98,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.98
+            },
+            {
+              "tick": 96,
+              "tool_x_mm": 17.98,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 108,
+              "tool_x_mm": 17.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 120,
+              "tool_x_mm": 17.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 132,
+              "tool_x_mm": 17.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            },
+            {
+              "tick": 144,
+              "tool_x_mm": 17.99,
+              "tool_z_mm": -0.01,
+              "handle_z_mm": -0.0,
+              "drawer_x_mm": 3.97
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

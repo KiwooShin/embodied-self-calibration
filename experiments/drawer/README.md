@@ -1,0 +1,50 @@
+# Reproducing the drawer study
+
+## Run the physics and teaching loop
+
+Run from the repository root. The reference PhysX run used an existing native ARM64 Isaac Sim 5.1 source build (47d886f2) on a DGX Spark. Set ISAAC_PYTHON to the installation's python.sh. An Isaac container needs the repository mounted inside it and access to the local model endpoint. The fixture is procedural and requires no asset download.
+
+```bash
+"$ISAAC_PYTHON" experiments/drawer/run.py --mode rule --out runs/isaac-rule.json
+"$ISAAC_PYTHON" experiments/drawer/run.py --mode qwen --out runs/isaac-raw.json
+"$ISAAC_PYTHON" experiments/drawer/run.py --mode qwen-observed --out runs/isaac-scored.json
+"$ISAAC_PYTHON" experiments/drawer/run.py --mode qwen-observed --suite transfer --out runs/isaac-transfer.json
+```
+
+Serve the official Qwen3-8B Q4_K_M GGUF using a local llama.cpp server. The experiment used CPU inference with 12 threads while Isaac used the Spark GPU. No external inference service or key is required. The default endpoint is loopback port 18081. Override it with --endpoint if needed. A failed model request terminates the run.
+
+```bash
+llama-server -m /path/to/Qwen3-8B-Q4_K_M.gguf --alias qwen3-8b -t 12 -c 4096 \
+  --parallel 1 --reasoning off --no-webui --port 18081 --host 127.0.0.1
+```
+
+The llama.cpp revision was e574a17b062be51b98e239ccd3d3743e3d902333. The model file has SHA-256 d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785. The request uses temperature zero, seed 13, a four-action JSON schema and a 160-token output limit. [GGUF files at the evaluated revision](https://huggingface.co/Qwen/Qwen3-8B-GGUF/tree/7c41481f57cb95916b40956ab2f0b139b296d974) · [llama.cpp](https://github.com/ggml-org/llama.cpp/tree/e574a17b062be51b98e239ccd3d3743e3d902333)
+
+For the independent ODE implementation, use Python with the Ubuntu python3-pyode package. The reference setup used ODE 0.16.2 and PyODE 1.2.0.dev15. These commands use the same supervisors and frozen-student evaluator.
+
+```bash
+/usr/bin/python3 experiments/drawer/run.py --backend ode --mode rule --out runs/ode-rule.json
+/usr/bin/python3 experiments/drawer/run.py --backend ode --mode qwen-observed --out runs/ode-qwen.json
+```
+
+## What a trial measures
+
+- Initial skill assumes positive polarity and zero lift. Practice begins from a standardized tool/handle arrangement. The independent fixtures vary the world origin and initial pin gap (3, 8 and 12 mm).
+- Each motor command takes 0.6 simulated seconds, with a ramp and settling interval. Physics steps at 240 Hz. Traces sample at 20 Hz. Position targets and measured tool/handle/drawer displacement are expressed in millimetres.
+- A bounded 12 mm probe updates one motor sign. A scripted three-axis teacher lifts, then pulls. Only the observed handle lift and drawer translation up to first crossing 5 mm are shown to the supervisor during a query. The student estimates peak handle lift from that segment and adds a fixed 6 mm clearance.
+- Teacher access, fault identity, and simulator geometry belong to the executor. The supervisor sees its action menu and public measurements. Fault names label saved results and films for the viewer. Teacher and student share a calibrated frame and common task axes.
+- Each decision consumes one of five slots. After assessment or budget exhaustion, a fresh scene loads the frozen polarity and lift. Scoring never calls Qwen. At least 60 mm of drawer travel constitutes success. The three deterministic test poses probe sensitivity to initial state. They are not independent model-training runs.
+- qwen uses raw numeric observations. qwen-observed additionally receives the signed travel direction and last measured progress against the 60 mm task goal. qwen-scheduled automatically practices following an update and assesses after observed success. Its remaining decisions use the same prompt and scored report as qwen-observed.
+- The shifted ODE evaluation uses --shifted with either --suite paired or --suite transfer. It changes horizontal gain to 0.92 and training gap to 6 mm. Latched cases can yield ODE contact-solver warnings near redundant contacts. Inspect full trajectories and reproduce the comparison on hardware before interpreting contact-force accuracy.
+
+## Make a milestone film
+
+Replay uses the measured terminal tool, handle, and drawer poses from the JSON. RTX images have decorative rails and housings. The teacher extension stroke in the illustration is apportioned from tool travel. It is not an independently measured teacher motor trajectory. Time is slowed, and each phase receives an equal screen duration. The score is computed from the original physics trace. Use an empty render cache when changing the scene design.
+
+```bash
+"$ISAAC_PYTHON" experiments/drawer/render.py results/drawer-qwen.json --cache .replay-cache/local
+python experiments/drawer/replay.py results/drawer-qwen.json runs/raw.mp4 \
+  --cache .replay-cache/local --title "When the teacher stops too soon"
+```
+
+The edit step requires Pillow, DejaVu Sans and FFmpeg with an H.264 encoder. The Spark run used --encoder libopenh264. Each film shows both cases, the following supervisory decision, and the largest-gap independent test. All three evaluation outcomes appear in the closing score.
