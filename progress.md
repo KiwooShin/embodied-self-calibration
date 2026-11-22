@@ -110,15 +110,15 @@ A daily repository workflow audits the teaching traces and manuscript tables, ch
 
 <!-- daily-review:start -->
 
-Completed **7 of 28** follow-up noise seeds.
+Completed **8 of 28** follow-up noise seeds.
 
 | Frame noise | Paired starts | Peak passed | Median then peak passed | Gained | Lost |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 2 mm | 189 | 114 | 102 | 12 | 24 |
-| 4 mm | 189 | 90 | 105 | 39 | 24 |
+| 2 mm | 216 | 132 | 117 | 12 | 27 |
+| 4 mm | 216 | 102 | 117 | 42 | 27 |
 
-[Latest raw paired replication](results/replications/seed-106.json).
-Next seed: **107**.
+[Latest raw paired replication](results/replications/seed-107.json).
+Next seed: **108**.
 
 <!-- daily-review:end -->
 
